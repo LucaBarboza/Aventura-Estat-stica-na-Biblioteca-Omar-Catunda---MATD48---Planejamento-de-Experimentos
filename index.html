@@ -10,6 +10,7 @@
   <style>
     :root {
       --primary: #1e40af;
+      --primary-soft: #eff6ff;
       --secondary: #0d9488;
       --bg: #f1f5f9;
       --card-bg: #ffffff;
@@ -17,6 +18,7 @@
       --text-muted: #64748b;
       --border: #e2e8f0;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.04);
     }
 
     * {
@@ -34,7 +36,7 @@
     }
 
     .container {
-      max-width: 980px;
+      max-width: 960px;
       margin: 0 auto;
       background: var(--card-bg);
       padding: 3.5rem;
@@ -43,6 +45,7 @@
       border: 1px solid rgba(226, 232, 240, 0.8);
     }
 
+    /* Cabeçalho */
     header {
       background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
       color: white;
@@ -85,6 +88,7 @@
       font-weight: 600;
     }
 
+    /* Títulos de Seções */
     h2 {
       font-size: 1.35rem;
       font-weight: 700;
@@ -105,6 +109,7 @@
       border-radius: 4px;
     }
 
+    /* Caixas de Resposta */
     .caixa-resposta {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -134,6 +139,7 @@
       font-size: 0.98rem;
     }
 
+    /* Tabelas */
     .table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -182,6 +188,7 @@
       color: #0f172a;
     }
 
+    /* Badges */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -202,18 +209,14 @@
       color: #64748b;
     }
 
-    /* Gráfico Estilo ggplot2 minimal */
+    /* Gráfico Estilizado */
     .chart-box {
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 16px;
-      padding: 1.5rem;
+      padding: 1.5rem 1.8rem;
       margin: 1.8rem 0;
       box-shadow: var(--shadow-sm);
-    }
-
-    svg text {
-      user-select: none;
     }
   </style>
 </head>
@@ -399,112 +402,108 @@
       </table>
     </div>
 
-    <!-- Gráfico Boxplot Fiel ao ggplot2 -->
+    <!-- Gráfico Boxplot Fiel ao ggplot2 com Coordenadas Calibradas -->
     <div class="chart-box">
-      <svg viewBox="0 0 850 450" style="width: 100%; height: auto; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;">
+      <svg viewBox="0 0 880 460" style="width: 100%; height: auto; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;">
         <!-- Fundo Branco -->
-        <rect width="850" height="450" fill="#ffffff" />
+        <rect width="880" height="460" fill="#ffffff" />
 
         <!-- Título do Gráfico -->
-        <text x="35" y="32" font-size="16" font-weight="500" fill="#111827">Distribuição do número de páginas por prateleira</text>
+        <text x="45" y="32" font-size="15" font-weight="600" fill="#111827">Distribuição do número de páginas por prateleira</text>
 
-        <!-- Grade de Fundo (theme_minimal do ggplot) -->
-        <!-- Linhas horizontais (0, 200, 400, 600, 800 páginas) -->
-        <!-- Escala Y: y = 370 - (valor / 850) * 320 -->
-        <line x1="35" y1="370" x2="690" y2="370" stroke="#f1f5f9" stroke-width="1.2" />
-        <line x1="35" y1="295" x2="690" y2="295" stroke="#f1f5f9" stroke-width="1.2" />
-        <line x1="35" y1="219" x2="690" y2="219" stroke="#f1f5f9" stroke-width="1.2" />
-        <line x1="35" y1="144" x2="690" y2="144" stroke="#f1f5f9" stroke-width="1.2" />
-        <line x1="35" y1="68" x2="690" y2="68" stroke="#f1f5f9" stroke-width="1.2" />
+        <!-- Grade de Fundo (theme_minimal) -->
+        <!-- Y: 800=70, 600=145, 400=220, 200=295, 0=370 -->
+        <line x1="75" y1="370" x2="720" y2="370" stroke="#f1f5f9" stroke-width="1.2" />
+        <line x1="75" y1="295" x2="720" y2="295" stroke="#f1f5f9" stroke-width="1.2" />
+        <line x1="75" y1="220" x2="720" y2="220" stroke="#f1f5f9" stroke-width="1.2" />
+        <line x1="75" y1="145" x2="720" y2="145" stroke="#f1f5f9" stroke-width="1.2" />
+        <line x1="75" y1="70" x2="720" y2="70" stroke="#f1f5f9" stroke-width="1.2" />
 
-        <!-- Linhas verticais dos centros das prateleiras -->
-        <line x1="170" y1="50" x2="170" y2="370" stroke="#f1f5f9" stroke-width="1.2" />
-        <line x1="380" y1="50" x2="380" y2="370" stroke="#f1f5f9" stroke-width="1.2" />
-        <line x1="590" y1="50" x2="590" y2="370" stroke="#f1f5f9" stroke-width="1.2" />
+        <!-- Linhas de centro verticais -->
+        <line x1="190" y1="50" x2="190" y2="370" stroke="#f1f5f9" stroke-width="1.2" />
+        <line x1="400" y1="50" x2="400" y2="370" stroke="#f1f5f9" stroke-width="1.2" />
+        <line x1="610" y1="50" x2="610" y2="370" stroke="#f1f5f9" stroke-width="1.2" />
 
-        <!-- Rótulos do Eixo Y -->
-        <text x="30" y="299" font-size="11" fill="#64748b" text-anchor="end">200</text>
-        <text x="30" y="223" font-size="11" fill="#64748b" text-anchor="end">400</text>
-        <text x="30" y="148" font-size="11" fill="#64748b" text-anchor="end">600</text>
-        <text x="30" y="72" font-size="11" fill="#64748b" text-anchor="end">800</text>
+        <!-- Rótulos Y com recuo adequado -->
+        <text x="62" y="299" font-size="11" fill="#64748b" text-anchor="end">200</text>
+        <text x="62" y="224" font-size="11" fill="#64748b" text-anchor="end">400</text>
+        <text x="62" y="149" font-size="11" fill="#64748b" text-anchor="end">600</text>
+        <text x="62" y="74" font-size="11" fill="#64748b" text-anchor="end">800</text>
 
-        <!-- Título do Eixo Y (Vertical) -->
-        <text x="-210" y="12" font-size="12" fill="#111827" text-anchor="middle" transform="rotate(-90)">Número de páginas</text>
+        <!-- Título do Eixo Y Vertical com folga -->
+        <text x="-220" y="24" font-size="12" fill="#111827" text-anchor="middle" transform="rotate(-90)">Número de páginas</text>
 
         <!-- ================= PRATELEIRA 1 ================= -->
         <!-- Bigode: Q1 (124) até Min (120) -->
-        <line x1="170" y1="323" x2="170" y2="325" stroke="#111827" stroke-width="1.2" />
+        <line x1="190" y1="323" x2="190" y2="325" stroke="#111827" stroke-width="1.2" />
         <!-- Caixa: Q1 (124) a Q3 (165), Mediana (124) -->
-        <rect x="95" y="308" width="150" height="15" fill="#66c2a5" fill-opacity="0.75" stroke="#111827" stroke-width="1.4" />
-        <line x1="95" y1="323" x2="245" y2="323" stroke="#111827" stroke-width="2.2" />
+        <rect x="115" y="308" width="150" height="15" fill="#66c2a5" fill-opacity="0.75" stroke="#111827" stroke-width="1.4" />
+        <line x1="115" y1="323" x2="265" y2="323" stroke="#111827" stroke-width="2.2" />
 
-        <!-- Pontos Exatos com Jitter da P1 (y=120, 124, 287) -->
-        <circle cx="152" cy="325" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="163" cy="323" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="178" cy="323" r="3.6" fill="#111827" opacity="0.8" />
+        <!-- Pontos Jitter da P1 (y=120, 124, 287) -->
+        <circle cx="172" cy="325" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="183" cy="323" r="3.6" fill="#111827" opacity="0.8" />
         <circle cx="198" cy="323" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="204" cy="323" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="212" cy="323" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="140" cy="262" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="148" cy="262" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="218" cy="323" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="224" cy="323" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="232" cy="323" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="160" cy="262" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="168" cy="262" r="3.6" fill="#111827" opacity="0.8" />
 
-        <text x="170" y="400" font-size="11.5" fill="#334155" text-anchor="middle">Prateleira 1</text>
+        <text x="190" y="400" font-size="11.5" fill="#334155" text-anchor="middle">Prateleira 1</text>
 
         <!-- ================= PRATELEIRA 2 ================= -->
-        <!-- Bigode Superior até Max (802) e Inferior até Min (308) -->
-        <line x1="380" y1="67" x2="380" y2="127" stroke="#111827" stroke-width="1.2" />
-        <line x1="380" y1="210" x2="380" y2="254" stroke="#111827" stroke-width="1.2" />
+        <!-- Bigode Superior (802) e Inferior (308) -->
+        <line x1="400" y1="69" x2="400" y2="128" stroke="#111827" stroke-width="1.2" />
+        <line x1="400" y1="210" x2="400" y2="254" stroke="#111827" stroke-width="1.2" />
         <!-- Caixa: Q1 (418.5) a Q3 (644), Mediana (487) -->
-        <rect x="305" y="127" width="150" height="83" fill="#fc8d62" fill-opacity="0.75" stroke="#111827" stroke-width="1.4" />
-        <line x1="305" y1="186" x2="455" y2="186" stroke="#111827" stroke-width="2.2" />
+        <rect x="325" y="128" width="150" height="82" fill="#fc8d62" fill-opacity="0.75" stroke="#111827" stroke-width="1.4" />
+        <line x1="325" y1="187" x2="475" y2="187" stroke="#111827" stroke-width="2.2" />
 
-        <!-- Pontos Exatos com Jitter da P2 (y=308, 333, 447, 487, 644, 802) -->
-        <circle cx="390" cy="67" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="355" cy="127" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="361" cy="127" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="356" cy="186" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="410" cy="186" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="413" cy="201" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="381" cy="244" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="358" cy="254" r="3.6" fill="#111827" opacity="0.8" />
+        <!-- Pontos Jitter da P2 (y=308, 333, 447, 487, 644, 802) -->
+        <circle cx="410" cy="69" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="375" cy="128" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="381" cy="128" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="376" cy="187" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="430" cy="187" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="433" cy="202" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="401" cy="245" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="378" cy="254" r="3.6" fill="#111827" opacity="0.8" />
 
-        <text x="380" y="400" font-size="11.5" fill="#334155" text-anchor="middle">Prateleira 2</text>
+        <text x="400" y="400" font-size="11.5" fill="#334155" text-anchor="middle">Prateleira 2</text>
 
         <!-- ================= PRATELEIRA 3 ================= -->
         <!-- Bigode: Q1 (423.25) até Min (311) -->
-        <line x1="590" y1="210" x2="590" y2="253" stroke="#111827" stroke-width="1.2" />
+        <line x1="610" y1="211" x2="610" y2="253" stroke="#111827" stroke-width="1.2" />
         <!-- Caixa: Q1 (423.25) a Q3 (430), Mediana (430) -->
-        <rect x="515" y="208" width="150" height="4" fill="#8da0cb" fill-opacity="0.75" stroke="#111827" stroke-width="1.4" />
-        <line x1="515" y1="208" x2="665" y2="208" stroke="#111827" stroke-width="2.2" />
+        <rect x="535" y="209" width="150" height="4" fill="#8da0cb" fill-opacity="0.75" stroke="#111827" stroke-width="1.4" />
+        <line x1="535" y1="209" x2="685" y2="209" stroke="#111827" stroke-width="2.2" />
 
-        <!-- Pontos Exatos com Jitter da P3 (y=311, 409, 428, 430) -->
-        <circle cx="568" cy="208" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="574" cy="208" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="584" cy="208" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="598" cy="208" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="583" cy="209" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="576" cy="216" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="628" cy="216" r="3.6" fill="#111827" opacity="0.8" />
-        <circle cx="577" cy="253" r="3.6" fill="#111827" opacity="0.8" />
+        <!-- Pontos Jitter da P3 (y=311, 409, 428, 430) -->
+        <circle cx="588" cy="209" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="594" cy="209" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="604" cy="209" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="618" cy="209" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="603" cy="210" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="596" cy="217" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="648" cy="217" r="3.6" fill="#111827" opacity="0.8" />
+        <circle cx="597" cy="253" r="3.6" fill="#111827" opacity="0.8" />
 
-        <text x="590" y="400" font-size="11.5" fill="#334155" text-anchor="middle">Prateleira 3</text>
+        <text x="610" y="400" font-size="11.5" fill="#334155" text-anchor="middle">Prateleira 3</text>
 
-        <!-- Título do Eixo X -->
-        <text x="380" y="428" font-size="12.5" fill="#111827" text-anchor="middle">Prateleira de Estatística</text>
+        <!-- Eixo X -->
+        <text x="400" y="428" font-size="12.5" fill="#111827" text-anchor="middle">Prateleira de Estatística</text>
 
-        <!-- ================= LEGENDA GGPLOT ================= -->
-        <g transform="translate(710, 195)">
-          <text x="0" y="0" font-size="12" font-weight="500" fill="#111827">prateleira</text>
+        <!-- ================= LEGENDA LATERAL GGPLOT ================= -->
+        <g transform="translate(740, 195)">
+          <text x="0" y="0" font-size="12" font-weight="600" fill="#111827">prateleira</text>
           
-          <!-- Item P1 -->
           <circle cx="8" cy="18" r="3.6" fill="#111827" opacity="0.8" />
           <text x="20" y="22" font-size="11" fill="#334155">Prateleira 1</text>
           
-          <!-- Item P2 -->
           <circle cx="8" cy="38" r="3.6" fill="#111827" opacity="0.8" />
           <text x="20" y="42" font-size="11" fill="#334155">Prateleira 2</text>
           
-          <!-- Item P3 -->
           <circle cx="8" cy="58" r="3.6" fill="#111827" opacity="0.8" />
           <text x="20" y="62" font-size="11" fill="#334155">Prateleira 3</text>
         </g>
