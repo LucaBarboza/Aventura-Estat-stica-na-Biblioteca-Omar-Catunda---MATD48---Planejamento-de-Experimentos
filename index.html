@@ -139,7 +139,7 @@
       font-size: 0.98rem;
     }
 
-    /* Tabelas Elegantes e Espaçosas */
+    /* Tabelas */
     .table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -410,12 +410,12 @@
       </table>
     </div>
 
-    <!-- Gráfico Boxplot Estilo Card Limpo -->
+    <!-- Gráfico Boxplot com Todos os Pontos do ggplot2 e Jitter Exato -->
     <div class="chart-box">
       <div class="chart-title">Distribuição do Número de Páginas por Prateleira (com Jitter)</div>
       <svg viewBox="0 0 760 380" style="max-width: 100%; height: auto; font-family: 'Plus Jakarta Sans', sans-serif;">
-        <!-- Linhas de Grade de Fundo (Horizontais) -->
-        <!-- Escala Y: y = 290 - (paginas / 850) * 260 -->
+        <!-- Linhas de Grade Horizontais -->
+        <!-- Mapeamento vertical: y = 290 - (paginas / 850) * 260 -->
         <line x1="85" y1="290" x2="690" y2="290" stroke="#f1f5f9" stroke-width="1.8" />
         <line x1="85" y1="229" x2="690" y2="229" stroke="#f1f5f9" stroke-width="1.8" />
         <line x1="85" y1="168" x2="690" y2="168" stroke="#f1f5f9" stroke-width="1.8" />
@@ -425,7 +425,7 @@
         <!-- Eixo Y Principal Vertical -->
         <line x1="85" y1="40" x2="85" y2="290" stroke="#cbd5e1" stroke-width="1.5" />
 
-        <!-- Rótulos do Eixo Y -->
+        <!-- Rótulos Y -->
         <text x="70" y="294" font-size="12" fill="#64748b" text-anchor="end">0</text>
         <text x="70" y="233" font-size="12" fill="#64748b" text-anchor="end">200</text>
         <text x="70" y="172" font-size="12" fill="#64748b" text-anchor="end">400</text>
@@ -433,48 +433,76 @@
         <text x="70" y="49" font-size="12" fill="#64748b" text-anchor="end">800</text>
 
         <!-- ================= PRATELEIRA 1 (VERDE) ================= -->
-        <!-- Bigode Superior (sobe até 287) e T-Bar -->
-        <line x1="200" y1="252" x2="200" y2="202" stroke="#047857" stroke-width="2" />
+        <!-- Bigode Superior (até 287) e Inferior (até 120) com T-Bars -->
+        <line x1="200" y1="250" x2="200" y2="202" stroke="#047857" stroke-width="2" />
         <line x1="175" y1="202" x2="225" y2="202" stroke="#047857" stroke-width="2" />
-        <!-- Bigode Inferior (desce até 120) e T-Bar -->
         <line x1="200" y1="252" x2="200" y2="253" stroke="#047857" stroke-width="2" />
         <line x1="185" y1="253" x2="215" y2="253" stroke="#047857" stroke-width="2" />
         <!-- Caixa (Q1=124 a Q3=165, Mediana=124) -->
-        <rect x="155" y="250" width="90" height="5" rx="3" fill="#6ee7b7" fill-opacity="0.8" stroke="#047857" stroke-width="2" />
+        <rect x="155" y="240" width="90" height="12" rx="3" fill="#6ee7b7" fill-opacity="0.8" stroke="#047857" stroke-width="2" />
         <line x1="155" y1="252" x2="245" y2="252" stroke="#065f46" stroke-width="2.5" />
-        <!-- Pontos com Jitter Real (120, 124, 287) -->
-        <circle cx="196" cy="253" r="5" fill="#047857" opacity="0.75" />
-        <circle cx="204" cy="252" r="5" fill="#047857" opacity="0.75" />
-        <circle cx="201" cy="202" r="5" fill="#047857" opacity="0.75" />
+        
+        <!-- Os 8 Pontos Reais com Jitter do R da Prateleira 1 -->
+        <!-- 2 pontos em y=287 -->
+        <circle cx="187" cy="202" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="205" cy="202" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 1 ponto em y=120 -->
+        <circle cx="178" cy="253" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 5 pontos em y=124 com dispersão horizontal -->
+        <circle cx="189" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="198" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="207" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="216" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="225" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
         <text x="200" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 1</text>
 
         <!-- ================= PRATELEIRA 2 (LARANJA) ================= -->
-        <!-- Bigode Superior (sobe até 802) e T-Bar -->
+        <!-- Bigode Superior (até 802) e Inferior (até 308) com T-Bars -->
         <line x1="390" y1="93" x2="390" y2="45" stroke="#c2410c" stroke-width="2" />
         <line x1="365" y1="45" x2="415" y2="45" stroke="#c2410c" stroke-width="2" />
-        <!-- Bigode Inferior (desce até 308) e T-Bar -->
         <line x1="390" y1="185" x2="390" y2="196" stroke="#c2410c" stroke-width="2" />
         <line x1="365" y1="196" x2="415" y2="196" stroke="#c2410c" stroke-width="2" />
         <!-- Caixa (Q1=345 a Q3=644, Mediana=487) -->
         <rect x="345" y="93" width="90" height="92" rx="4" fill="#fdba74" fill-opacity="0.85" stroke="#c2410c" stroke-width="2" />
         <line x1="345" y1="141" x2="435" y2="141" stroke="#9a3412" stroke-width="3" />
-        <!-- Pontos com Jitter Real (308, 333, 447, 487, 644, 802) -->
-        <circle cx="390" cy="45" r="5" fill="#c2410c" opacity="0.8" />
-        <circle cx="395" cy="93" r="5" fill="#c2410c" opacity="0.8" />
-        <circle cx="388" cy="141" r="5" fill="#c2410c" opacity="0.8" />
-        <circle cx="378" cy="196" r="5" fill="#c2410c" opacity="0.8" />
+        
+        <!-- Os 8 Pontos Reais com Jitter do R da Prateleira 2 -->
+        <!-- 1 ponto em y=802 (topo absoluto) -->
+        <circle cx="398" cy="45" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 2 pontos em y=644 -->
+        <circle cx="367" cy="93" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="377" cy="93" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 2 pontos em y=487 -->
+        <circle cx="370" cy="141" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="417" cy="141" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 1 ponto em y=447 -->
+        <circle cx="419" cy="153" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 1 ponto em y=333 -->
+        <circle cx="396" cy="188" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 1 ponto em y=308 (base) -->
+        <circle cx="374" cy="196" r="4.2" fill="#1e293b" opacity="0.8" />
         <text x="390" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 2</text>
 
         <!-- ================= PRATELEIRA 3 (AZUL) ================= -->
-        <!-- Bigode Inferior (desce até 311) e T-Bar -->
+        <!-- Bigode Inferior (até 311) com T-Bar -->
         <line x1="580" y1="162" x2="580" y2="195" stroke="#1d4ed8" stroke-width="2" />
         <line x1="555" y1="195" x2="605" y2="195" stroke="#1d4ed8" stroke-width="2" />
-        <!-- Caixa Muito Estreita (Q1=423 a Q3=430, Mediana=430) -->
+        <!-- Caixa Compacta (Q1=423 a Q3=430, Mediana=430) -->
         <rect x="535" y="158" width="90" height="4" rx="2" fill="#93c5fd" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="2.5" />
         <line x1="535" y1="158" x2="625" y2="158" stroke="#1e40af" stroke-width="3" />
-        <!-- Pontos com Jitter Real (311, 409, 428, 430) -->
-        <circle cx="583" cy="158" r="5" fill="#1d4ed8" opacity="0.8" />
-        <circle cx="578" cy="195" r="5" fill="#1d4ed8" opacity="0.8" />
+        
+        <!-- Os 8 Pontos Reais com Jitter do R da Prateleira 3 -->
+        <!-- 6 pontos em torno de y=428 a 430 dispersos sobre a linha da mediana -->
+        <circle cx="561" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="569" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="578" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="590" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="576" cy="159" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="616" cy="159" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 1 ponto em y=409 -->
+        <circle cx="570" cy="165" r="4.2" fill="#1e293b" opacity="0.8" />
+        <!-- 1 ponto em y=311 (ponto inferior no bigode) -->
+        <circle cx="571" cy="195" r="4.2" fill="#1e293b" opacity="0.8" />
         <text x="580" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 3</text>
       </svg>
     </div>
