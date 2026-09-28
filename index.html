@@ -45,6 +45,7 @@
       border: 1px solid rgba(226, 232, 240, 0.8);
     }
 
+    /* Cabeçalho */
     header {
       background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
       color: white;
@@ -87,6 +88,7 @@
       font-weight: 600;
     }
 
+    /* Títulos de Seções */
     h2 {
       font-size: 1.35rem;
       font-weight: 700;
@@ -107,6 +109,7 @@
       border-radius: 4px;
     }
 
+    /* Caixas de Resposta Bonitas */
     .caixa-resposta {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -136,6 +139,7 @@
       font-size: 0.98rem;
     }
 
+    /* Tabelas */
     .table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -230,7 +234,7 @@
     </div>
   </header>
 
-  <!-- 1. Exploração Inicial e Identificação das Prateleiras -->
+  <!-- 1. Tarefa de Exploração e Identificação das Prateleiras -->
   <section>
     <h2>1. Exploração Inicial e Identificação das Prateleiras</h2>
     
@@ -395,12 +399,11 @@
       </table>
     </div>
 
-    <!-- Gráfico Boxplot Fiel ao ggplot2 (Pixel-Perfect) -->
+    <!-- Gráfico Boxplot -->
     <div class="chart-box">
       <div class="chart-title">Distribuição do Número de Páginas por Prateleira (com Jitter)</div>
       <svg viewBox="0 0 760 380" style="max-width: 100%; height: auto; font-family: 'Plus Jakarta Sans', sans-serif;">
-        <!-- Grade Horizontais -->
-        <!-- Mapeamento Y: y = 290 - (paginas / 850) * 260 -->
+        <!-- Linhas de Grade Horizontais -->
         <line x1="85" y1="290" x2="690" y2="290" stroke="#f1f5f9" stroke-width="1.8" />
         <line x1="85" y1="229" x2="690" y2="229" stroke="#f1f5f9" stroke-width="1.8" />
         <line x1="85" y1="168" x2="690" y2="168" stroke="#f1f5f9" stroke-width="1.8" />
@@ -408,7 +411,7 @@
         <line x1="85" y1="45" x2="690" y2="45" stroke="#f1f5f9" stroke-width="1.8" />
 
         <!-- Eixo Y Principal Vertical -->
-        <line x1="85" y1="35" x2="85" y2="290" stroke="#cbd5e1" stroke-width="1.5" />
+        <line x1="85" y1="40" x2="85" y2="290" stroke="#cbd5e1" stroke-width="1.5" />
 
         <!-- Rótulos Y -->
         <text x="70" y="294" font-size="12" fill="#64748b" text-anchor="end">0</text>
@@ -417,70 +420,59 @@
         <text x="70" y="110" font-size="12" fill="#64748b" text-anchor="end">600</text>
         <text x="70" y="49" font-size="12" fill="#64748b" text-anchor="end">800</text>
 
-        <!-- ================= PRATELEIRA 1 ================= -->
-        <!-- Caixa com cantos retos e alpha=0.7 (sem bigode T-bar no topo) -->
-        <rect x="150" y="240" width="100" height="12" fill="#66c2a5" fill-opacity="0.75" stroke="#1e293b" stroke-width="1.4" />
-        <line x1="150" y1="252" x2="250" y2="252" stroke="#1e293b" stroke-width="2.5" />
+        <!-- ================= PRATELEIRA 1 (VERDE) ================= -->
+        <line x1="200" y1="250" x2="200" y2="202" stroke="#047857" stroke-width="2" />
+        <line x1="175" y1="202" x2="225" y2="202" stroke="#047857" stroke-width="2" />
+        <line x1="200" y1="252" x2="200" y2="253" stroke="#047857" stroke-width="2" />
+        <line x1="185" y1="253" x2="215" y2="253" stroke="#047857" stroke-width="2" />
+        <rect x="155" y="240" width="90" height="12" rx="3" fill="#6ee7b7" fill-opacity="0.8" stroke="#047857" stroke-width="2" />
+        <line x1="155" y1="252" x2="245" y2="252" stroke="#065f46" stroke-width="2.5" />
         
-        <!-- Os 8 Pontos da P1 Exatamente como no R -->
-        <!-- 2 pontos em y=287 à esquerda do centro -->
-        <circle cx="188" cy="202" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="198" cy="202" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 1 ponto em y=120 ligeiramente à direita do centro e abaixo da linha -->
-        <circle cx="218" cy="254" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 5 pontos em y=124 distribuídos sobre a linha -->
-        <circle cx="180" cy="252" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="192" cy="252" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="203" cy="252" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="212" cy="252" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="225" cy="252" r="4.2" fill="#1e293b" opacity="0.85" />
+        <!-- Pontos P1 -->
+        <circle cx="187" cy="202" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="205" cy="202" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="178" cy="253" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="189" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="198" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="207" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="216" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="225" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
         <text x="200" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 1</text>
 
-        <!-- ================= PRATELEIRA 2 ================= -->
-        <!-- Bigode Superior (linha reta contínua até 802) e Inferior (até 308) -->
-        <line x1="390" y1="93" x2="390" y2="45" stroke="#1e293b" stroke-width="1.4" />
-        <line x1="390" y1="185" x2="390" y2="196" stroke="#1e293b" stroke-width="1.4" />
-        <!-- Caixa com cantos retos -->
-        <rect x="340" y="93" width="100" height="92" fill="#fc8d62" fill-opacity="0.75" stroke="#1e293b" stroke-width="1.4" />
-        <line x1="340" y1="141" x2="440" y2="141" stroke="#1e293b" stroke-width="2.5" />
+        <!-- ================= PRATELEIRA 2 (LARANJA) ================= -->
+        <line x1="390" y1="93" x2="390" y2="45" stroke="#c2410c" stroke-width="2" />
+        <line x1="365" y1="45" x2="415" y2="45" stroke="#c2410c" stroke-width="2" />
+        <line x1="390" y1="185" x2="390" y2="196" stroke="#c2410c" stroke-width="2" />
+        <line x1="365" y1="196" x2="415" y2="196" stroke="#c2410c" stroke-width="2" />
+        <rect x="345" y="93" width="90" height="92" rx="4" fill="#fdba74" fill-opacity="0.85" stroke="#c2410c" stroke-width="2" />
+        <line x1="345" y1="141" x2="435" y2="141" stroke="#9a3412" stroke-width="3" />
         
-        <!-- Os 8 Pontos da P2 Exatamente como no R -->
-        <!-- 1 ponto em y=802 (no topo da linha vertical, ligeiramente à direita) -->
-        <circle cx="395" cy="45" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 2 pontos em y=644 (à esquerda da linha do bigode) -->
-        <circle cx="372" cy="93" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="380" cy="93" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 2 pontos em y=487 (um à esquerda, um à direita da linha vertical) -->
-        <circle cx="373" cy="141" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="410" cy="141" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 1 ponto em y=447 (logo abaixo do ponto direito da mediana) -->
-        <circle cx="411" cy="153" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 1 ponto em y=333 (logo abaixo da base da caixa, à direita da linha) -->
-        <circle cx="398" cy="188" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 1 ponto em y=308 (na ponta do bigode inferior, à esquerda da linha) -->
-        <circle cx="376" cy="196" r="4.2" fill="#1e293b" opacity="0.85" />
+        <!-- Pontos P2 -->
+        <circle cx="398" cy="45" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="367" cy="93" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="377" cy="93" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="370" cy="141" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="417" cy="141" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="419" cy="153" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="396" cy="188" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="374" cy="196" r="4.2" fill="#1e293b" opacity="0.8" />
         <text x="390" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 2</text>
 
-        <!-- ================= PRATELEIRA 3 ================= -->
-        <!-- Bigode Inferior contínuo até 311 páginas -->
-        <line x1="580" y1="162" x2="580" y2="195" stroke="#1e293b" stroke-width="1.4" />
-        <!-- Caixa com cantos retos -->
-        <rect x="530" y="158" width="100" height="4" fill="#8da0cb" fill-opacity="0.75" stroke="#1e293b" stroke-width="1.4" />
-        <line x1="530" y1="158" x2="630" y2="158" stroke="#1e293b" stroke-width="2.5" />
+        <!-- ================= PRATELEIRA 3 (AZUL) ================= -->
+        <line x1="580" y1="162" x2="580" y2="195" stroke="#1d4ed8" stroke-width="2" />
+        <line x1="555" y1="195" x2="605" y2="195" stroke="#1d4ed8" stroke-width="2" />
+        <rect x="535" y="158" width="90" height="4" rx="2" fill="#93c5fd" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="2.5" />
+        <line x1="535" y1="158" x2="625" y2="158" stroke="#1e40af" stroke-width="3" />
         
-        <!-- Os 8 Pontos da P3 Exatamente como no R -->
-        <!-- 5 pontos na linha da caixa (y=430) -->
-        <circle cx="563" cy="158" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="570" cy="158" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="578" cy="158" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="589" cy="158" r="4.2" fill="#1e293b" opacity="0.85" />
-        <circle cx="616" cy="158" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 1 ponto em y=428 (logo abaixo à direita) -->
-        <circle cx="579" cy="159" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 1 ponto em y=409 (isolado à direita) -->
-        <circle cx="604" cy="165" r="4.2" fill="#1e293b" opacity="0.85" />
-        <!-- 1 ponto em y=311 (no final do bigode inferior) -->
-        <circle cx="579" cy="195" r="4.2" fill="#1e293b" opacity="0.85" />
+        <!-- Pontos P3 -->
+        <circle cx="561" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="569" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="578" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="590" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="576" cy="159" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="616" cy="159" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="570" cy="165" r="4.2" fill="#1e293b" opacity="0.8" />
+        <circle cx="571" cy="195" r="4.2" fill="#1e293b" opacity="0.8" />
         <text x="580" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 3</text>
       </svg>
     </div>
@@ -490,6 +482,7 @@
   <section>
     <h2>5. Análise de Variância (ANOVA) e Pressupostos</h2>
     
+    <!-- Tabela da ANOVA sem a coluna Decisão -->
     <div class="table-wrapper">
       <table>
         <thead>
@@ -531,6 +524,7 @@
       </table>
     </div>
 
+    <!-- Tabela de Tukey sem a coluna Conclusão e sem interpretações em texto -->
     <h3 style="font-size: 1.1rem; color: #1e3a8a; margin-top: 1.8rem; margin-bottom: 0.6rem;">Teste de Comparações Múltiplas (Tukey HSD)</h3>
     <div class="table-wrapper">
       <table>
@@ -569,6 +563,7 @@
       </table>
     </div>
 
+    <!-- Diagnóstico dos Pressupostos em formato de Tabela -->
     <h3 style="font-size: 1.1rem; color: #1e3a8a; margin-top: 1.8rem; margin-bottom: 0.6rem;">Diagnóstico e Testes de Pressupostos</h3>
     <div class="table-wrapper">
       <table>
