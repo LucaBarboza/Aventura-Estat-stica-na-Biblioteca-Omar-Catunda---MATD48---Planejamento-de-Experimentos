@@ -393,12 +393,12 @@
       </table>
     </div>
 
-    <!-- Gráfico Boxplot Rigorosamente Mapeado via layer_data() -->
+    <!-- Gráfico Boxplot Fiel ao ggplot2 -->
     <div class="chart-box">
       <div class="chart-title">Distribuição do Número de Páginas por Prateleira (com Jitter)</div>
       <svg viewBox="0 0 760 380" style="max-width: 100%; height: auto; font-family: 'Plus Jakarta Sans', sans-serif;">
-        <!-- Linhas de Grade Horizontais -->
-        <!-- y = 290 - (paginas / 850) * 260 -->
+        <!-- Linhas de Grade de Fundo (Horizontais) -->
+        <!-- Y: 800=45, 600=106, 400=168, 200=229, 0=290 -->
         <line x1="85" y1="290" x2="690" y2="290" stroke="#f1f5f9" stroke-width="1.8" />
         <line x1="85" y1="229" x2="690" y2="229" stroke="#f1f5f9" stroke-width="1.8" />
         <line x1="85" y1="168" x2="690" y2="168" stroke="#f1f5f9" stroke-width="1.8" />
@@ -416,87 +416,77 @@
         <text x="70" y="49" font-size="12" fill="#64748b" text-anchor="end">800</text>
 
         <!-- ================= PRATELEIRA 1 (VERDE) ================= -->
-        <!-- Bigode Superior (simples do ggplot) até 287 -->
-        <line x1="200" y1="239" x2="200" y2="202" stroke="#047857" stroke-width="1.5" />
-        <!-- Caixa: Q1(124)->252, Q3(165)->239 -->
+        <!-- Centro X = 200 -->
+        <!-- Caixa: Q1(124) -> y=252, Q3(165) -> y=239 -->
         <rect x="155" y="239" width="90" height="13" fill="#6ee7b7" fill-opacity="0.8" stroke="#047857" stroke-width="1.8" />
         <!-- Linha da Mediana (124) -->
         <line x1="155" y1="252" x2="245" y2="252" stroke="#065f46" stroke-width="2.5" />
+        <!-- Bigode Superior simples do ggplot (sem barra T horizontal) até 287 -->
+        <line x1="200" y1="239" x2="200" y2="202" stroke="#047857" stroke-width="1.5" />
 
-        <!-- 8 Pontos Exatos (layer_data) da Prateleira 1 -->
-        <!-- Ponto 1: x = 0.9596, y = 124.09 -->
-        <circle cx="192.3" cy="252.0" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 2: x = 0.9802, y = 287.26 -->
-        <circle cx="196.2" cy="202.1" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 3: x = 1.0813, y = 124.20 -->
-        <circle cx="215.4" cy="252.0" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 4: x = 0.9351, y = 123.64 -->
-        <circle cx="187.7" cy="252.1" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 5: x = 1.0295, y = 287.73 -->
-        <circle cx="205.6" cy="202.0" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 6: x = 1.0857, y = 119.49 -->
-        <circle cx="216.3" cy="253.4" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 7: x = 1.1352, y = 124.42 -->
-        <circle cx="225.7" cy="251.9" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 8: x = 1.0970, y = 123.58 -->
-        <circle cx="218.4" cy="252.2" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 8 Pontos com Jitter IDÊNTICOS ao R: -->
+        <!-- 2 pontos em y=287, ambos à esquerda do centro -->
+        <circle cx="180" cy="202" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="190" cy="202" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- Pontos em torno da base (120 e 124): -->
+        <circle cx="171" cy="252" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="177" cy="252" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="192" cy="252" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="216" cy="252" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="221" cy="252" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="218" cy="253" r="3.8" fill="#111827" opacity="0.8" />
 
         <text x="200" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 1</text>
 
         <!-- ================= PRATELEIRA 2 (LARANJA) ================= -->
-        <!-- Bigode Superior (até 802) e Inferior (até 308) -->
-        <line x1="390" y1="93" x2="390" y2="44.6" stroke="#c2410c" stroke-width="1.5" />
-        <line x1="390" y1="184" x2="390" y2="195.8" stroke="#c2410c" stroke-width="1.5" />
-        <!-- Caixa: Q1(345)->184, Q3(644)->93 -->
+        <!-- Centro X = 390 -->
+        <!-- Caixa: Q1(345) -> y=184, Q3(644) -> y=93 -->
         <rect x="345" y="93" width="90" height="91" fill="#fdba74" fill-opacity="0.85" stroke="#c2410c" stroke-width="1.8" />
-        <!-- Linha da Mediana (487) -->
+        <!-- Linha da Mediana (487) -> y=141 -->
         <line x1="345" y1="141" x2="435" y2="141" stroke="#9a3412" stroke-width="2.5" />
+        <!-- Bigode Superior até 802 (y=44) e Inferior até 308 (y=196) -->
+        <line x1="390" y1="93" x2="390" y2="44" stroke="#c2410c" stroke-width="1.5" />
+        <line x1="390" y1="184" x2="390" y2="196" stroke="#c2410c" stroke-width="1.5" />
 
-        <!-- 8 Pontos Exatos (layer_data) da Prateleira 2 -->
-        <!-- Ponto 9: x = 2.0765, y = 643.90 -->
-        <circle cx="404.5" cy="93.0" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 10: x = 1.9586, y = 644.20 -->
-        <circle cx="382.1" cy="92.9" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 11: x = 1.8576, y = 307.95 -->
-        <circle cx="362.9" cy="195.8" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 12: x = 2.0544, y = 802.30 -->
-        <circle cx="400.3" cy="44.6" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 13: x = 1.8588, y = 487.66 -->
-        <circle cx="363.2" cy="140.8" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 14: x = 1.9446, y = 447.04 -->
-        <circle cx="379.5" cy="153.2" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 15: x = 2.0077, y = 486.44 -->
-        <circle cx="391.5" cy="141.2" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 16: x = 1.8737, y = 332.47 -->
-        <circle cx="366.0" cy="188.3" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 8 Pontos com Jitter IDÊNTICOS ao R: -->
+        <!-- 1 ponto em y=802 (levemente à direita) -->
+        <circle cx="395" cy="44" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 2 pontos em y=644 (ambos à esquerda do centro) -->
+        <circle cx="372" cy="93" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="378" cy="93" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 2 pontos em y=487 (um à esquerda, um à direita) -->
+        <circle cx="373" cy="141" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="414" cy="141" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 1 ponto em y=447 (abaixo da mediana, à direita) -->
+        <circle cx="415" cy="153" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 1 ponto em y=333 (à esquerda) -->
+        <circle cx="377" cy="188" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 1 ponto em y=308 (perto do centro) -->
+        <circle cx="388" cy="196" r="3.8" fill="#111827" opacity="0.8" />
 
         <text x="390" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 2</text>
 
         <!-- ================= PRATELEIRA 3 (AZUL) ================= -->
-        <!-- Bigode Inferior (até 311) -->
-        <line x1="580" y1="161" x2="580" y2="194.9" stroke="#1d4ed8" stroke-width="1.5" />
-        <!-- Caixa: Q1(423)->161, Q3(430)->158 -->
+        <!-- Centro X = 580 -->
+        <!-- Caixa Estreita: Q1(423) -> y=161, Q3(430) -> y=158 -->
         <rect x="535" y="158" width="90" height="3" fill="#93c5fd" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="1.8" />
         <!-- Linha da Mediana (430) -->
-        <line x1="535" y1="158.5" x2="625" y2="158.5" stroke="#1e40af" stroke-width="2.5" />
+        <line x1="535" y1="158" x2="625" y2="158" stroke="#1e40af" stroke-width="2.5" />
+        <!-- Bigode Inferior simples até 311 (y=195) -->
+        <line x1="580" y1="161" x2="580" y2="195" stroke="#1d4ed8" stroke-width="1.5" />
 
-        <!-- 8 Pontos Exatos (layer_data) da Prateleira 3 -->
-        <!-- Ponto 17: x = 3.1059, y = 429.80 -->
-        <circle cx="600.1" cy="158.5" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 18: x = 2.8616, y = 429.21 -->
-        <circle cx="553.7" cy="158.7" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 19: x = 2.9232, y = 429.22 -->
-        <circle cx="565.4" cy="158.7" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 20: x = 3.0866, y = 430.61 -->
-        <circle cx="596.5" cy="158.3" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 21: x = 2.8800, y = 408.54 -->
-        <circle cx="557.2" cy="165.0" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 22: x = 2.8866, y = 429.75 -->
-        <circle cx="558.5" cy="158.6" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 23: x = 2.9209, y = 310.93 -->
-        <circle cx="565.0" cy="194.9" r="3.8" fill="#111827" opacity="0.8" />
-        <!-- Ponto 24: x = 3.0192, y = 427.44 -->
-        <circle cx="583.7" cy="159.3" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 8 Pontos com Jitter IDÊNTICOS ao R: -->
+        <!-- 6 pontos em torno de 428-430 no topo da caixa (centro e esquerda) -->
+        <circle cx="560" cy="158" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="567" cy="158" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="574" cy="158" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="579" cy="158" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="597" cy="158" r="3.8" fill="#111827" opacity="0.8" />
+        <circle cx="607" cy="162" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 1 ponto em y=409 (intermediário, à direita) -->
+        <circle cx="589" cy="165" r="3.8" fill="#111827" opacity="0.8" />
+        <!-- 1 ponto em y=311 (no fundo, bem à direita) -->
+        <circle cx="589" cy="195" r="3.8" fill="#111827" opacity="0.8" />
 
         <text x="580" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 3</text>
       </svg>
