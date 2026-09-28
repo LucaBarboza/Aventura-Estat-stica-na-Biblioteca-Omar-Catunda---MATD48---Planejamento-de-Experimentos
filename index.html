@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório - Aventura Estatística na Biblioteca Omar Catunda</title>
+  <!-- Vínculo com o arquivo CSS externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Aventura Estatística na Biblioteca Omar Catunda</h1>
+      <p><strong>Disciplina:</strong> MATD28 - Planejamento de Experimentos | UFBA</p>
+      
+      <div class="team-info">
+        <div><strong>Equipe / Alunos:</strong> <span contenteditable="true">[Digite os nomes aqui]</span></div>
+        <div><strong>Data do Experimento:</strong> <span contenteditable="true">28/09/2026</span></div>
+      </div>
+    </header>
+
+    <!-- PARTE 1 -->
+    <section>
+      <h2>Parte 1 - Localizando o Tesouro (Exploração)</h2>
+      <p>Descrição física das seções selecionadas no 2º andar da biblioteca:</p>
+
+      <div class="question-item">
+        <label>1. As 3 prateleiras de Estatística estão próximas ou separadas? Descreva a localização física:</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+
+      <div class="question-item">
+        <label>2. Vocês reconhecem algum livro na área? (Ex: Bussab & Morettin, Montgomery, Meyer, etc.):</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+
+      <div class="question-item">
+        <label>3. Qual prateleira parece ter os livros mais antigos?</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+    </section>
+
+    <!-- PARTE 2 -->
+    <section>
+      <h2>Parte 2 - Plano de Aleatorização (DIC)</h2>
+      <p>Ordem aleatória executada pelos avaliadores para evitar vícios de cansaço ou viés de seleção.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Ordem Medição</th>
+              <th>Prateleira</th>
+              <th>Livro ID</th>
+              <th>Posição Aprox.</th>
+              <th>Aluno</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Prateleira 3</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td>2</td><td>Prateleira 1</td><td>6</td><td>8</td><td>2</td></tr>
+            <tr><td>3</td><td>Prateleira 3</td><td>6</td><td>4</td><td>2</td></tr>
+            <tr><td>4</td><td>Prateleira 2</td><td>2</td><td>8</td><td>1</td></tr>
+            <tr><td>5</td><td>Prateleira 2</td><td>1</td><td>4</td><td>2</td></tr>
+            <tr><td>6</td><td>Prateleira 2</td><td>7</td><td>2</td><td>2</td></tr>
+            <tr><td>7</td><td>Prateleira 1</td><td>4</td><td>8</td><td>2</td></tr>
+            <tr><td>8</td><td>Prateleira 3</td><td>3</td><td>10</td><td>1</td></tr>
+            <tr><td>9</td><td>Prateleira 3</td><td>4</td><td>11</td><td>2</td></tr>
+            <tr><td>10</td><td>Prateleira 1</td><td>2</td><td>12</td><td>2</td></tr>
+            <tr><td>11</td><td>Prateleira 2</td><td>8</td><td>5</td><td>1</td></tr>
+            <tr><td>12</td><td>Prateleira 1</td><td>8</td><td>12</td><td>2</td></tr>
+            <tr><td>13</td><td>Prateleira 3</td><td>8</td><td>4</td><td>2</td></tr>
+            <tr><td>14</td><td>Prateleira 2</td><td>5</td><td>6</td><td>2</td></tr>
+            <tr><td>15</td><td>Prateleira 2</td><td>3</td><td>1</td><td>2</td></tr>
+            <tr><td>16</td><td>Prateleira 3</td><td>7</td><td>13</td><td>1</td></tr>
+            <tr><td>17</td><td>Prateleira 1</td><td>1</td><td>5</td><td>1</td></tr>
+            <tr><td>18</td><td>Prateleira 3</td><td>2</td><td>3</td><td>2</td></tr>
+            <tr><td>19</td><td>Prateleira 2</td><td>6</td><td>4</td><td>1</td></tr>
+            <tr><td>20</td><td>Prateleira 2</td><td>4</td><td>14</td><td>1</td></tr>
+            <tr><td>21</td><td>Prateleira 3</td><td>5</td><td>10</td><td>1</td></tr>
+            <tr><td>22</td><td>Prateleira 1</td><td>7</td><td>6</td><td>1</td></tr>
+            <tr><td>23</td><td>Prateleira 1</td><td>5</td><td>15</td><td>1</td></tr>
+            <tr><td>24</td><td>Prateleira 1</td><td>3</td><td>10</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PARTE 3 -->
+    <section>
+      <h2>Parte 3 - Dados Coletados</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Prateleira</th>
+              <th>Livros Medidos (Número de Páginas)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Prateleira 1</strong></td>
+              <td>124, 287, 124, 124, 287, 120, 124, 124</td>
+            </tr>
+            <tr>
+              <td><strong>Prateleira 2</strong></td>
+              <td>644, 644, 308, 802, 487, 447, 487, 333</td>
+            </tr>
+            <tr>
+              <td><strong>Prateleira 3</strong></td>
+              <td>430, 430, 430, 430, 409, 430, 311, 428</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PARTE 4 -->
+    <section>
+      <h2>Parte 4 - Análise dos Dados</h2>
+
+      <h3>1. Estatísticas Descritivas</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Prateleira</th>
+              <th>n</th>
+              <th>Média</th>
+              <th>Desvio Padrão</th>
+              <th>Mediana</th>
+              <th>Mínimo</th>
+              <th>Máximo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Prateleira 1</td><td>8</td><td>164.25</td><td>75.78</td><td>124</td><td>120</td><td>287</td></tr>
+            <tr><td>Prateleira 2</td><td>8</td><td>519.00</td><td>168.05</td><td>487</td><td>308</td><td>802</td></tr>
+            <tr><td>Prateleira 3</td><td>8</td><td>412.25</td><td>41.55</td><td>430</td><td>311</td><td>430</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="question-item">
+        <label>Interpretação das estatísticas descritivas:</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+
+      <h3>2. Visualização Gráfica (Boxplot + Jitter)</h3>
+      <div class="image-container">
+        <!-- Substitua pelo arquivo gerado no R -->
+        <img src="grafico.png" alt="Boxplot do número de páginas por prateleira" onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'><p>Salve o gráfico gerado no R com o nome <strong>grafico.png</strong> nesta mesma pasta para visualizá-lo aqui.</p></div>'">
+      </div>
+
+      <div class="question-item">
+        <label>Interpretação visual do gráfico:</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+
+      <h3>3. Análise de Variância (ANOVA)</h3>
+      <pre><code>            Df Sum Sq Mean Sq F value   Pr(>F)    
+prateleira   2 529992  264996   22.26 6.47e-06 ***
+Residuals   21 249967   11903                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+
+      <div class="question-item">
+        <label>Decisão do Teste ANOVA (p-valor, rejeição/não rejeição de H₀ e conclusão):</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+
+      <h3>4. Teste de Comparações Múltiplas (Tukey HSD)</h3>
+      <pre><code>Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = paginas ~ prateleira, data = dados)
+
+$prateleira
+                             diff       lwr      upr     p adj
+Prateleira 2-Prateleira 1  354.75  217.2507 492.2493 0.0000056
+Prateleira 3-Prateleira 1  248.00  110.5007 385.4993 0.0004965
+Prateleira 3-Prateleira 2 -106.75 -244.2493  30.7493 0.1478751</code></pre>
+
+      <div class="question-item">
+        <label>Interpretação dos contrastes de Tukey:</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+
+      <h3>5. Verificação dos Pressupostos</h3>
+      <p><strong>Normalidade dos Resíduos (Shapiro-Wilk):</strong></p>
+      <pre><code>	Shapiro-Wilk normality test
+
+data:  residuals(modelo)
+W = 0.9186, p-value = 0.05439</code></pre>
+
+      <p><strong>Homocedasticidade das Variâncias (Teste de Levene):</strong></p>
+      <pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value  Pr(>F)  
+group  2   4.065 0.03219 *
+      21                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+
+      <div class="question-item">
+        <label>Avaliação do atendimento dos pressupostos (Normalidade e Homocedasticidade):</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+    </section>
+
+    <!-- PARTE 5 -->
+    <section>
+      <h2>Parte 5 - Conclusão e Discussão Crítica</h2>
+      
+      <div class="question-item">
+        <label>Conclusão geral (houve diferença significativa? o que isso reflete sobre as estantes? quais foram as limitações?):</label>
+        <div class="answer-box" contenteditable="true" style="min-height: 120px;"></div>
+      </div>
+
+      <div class="question-item">
+        <label>Meta-experimento (Se vocês refizessem o experimento, o que mudariam?):</label>
+        <div class="answer-box" contenteditable="true"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Relatório de Aula Prática • MATD28 Planejamento de Experimentos • UFBA</p>
+    </footer>
+  </div>
+
+  <!-- Vínculo com o arquivo JavaScript externo -->
+  <script src="script.js"></script>
+</body>
+</html>
