@@ -188,27 +188,6 @@
       color: #0f172a;
     }
 
-    /* Tags de Status e P-valor */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .badge-sig {
-      background-color: #dcfce7;
-      color: #166534;
-    }
-
-    .badge-nonsig {
-      background-color: #f1f5f9;
-      color: #64748b;
-    }
-
     /* Card do Gráfico */
     .chart-box {
       background: #ffffff;
@@ -241,34 +220,52 @@
         <span>MATD28 – Planej. de Experimentos</span>
       </div>
       <div class="meta-item">
-        <span>Alunos</span>
-        <span>Luca Barboza e Vitor Freitas</span>
+        <span>Local</span>
+        <span>UFBA - Campus de Ondina</span>
+      </div>
+      <div class="meta-item">
+        <span>Configuração</span>
+        <span>Semente: 42 | 3 Níveis | n = 8</span>
+      </div>
+      <div class="meta-item">
+        <span>Variável Resposta</span>
+        <span>Número de Páginas</span>
       </div>
     </div>
   </header>
 
-  <!-- 1. Identificação das Prateleiras -->
+  <!-- 1. Tarefa de Exploração e Identificação das Prateleiras -->
   <section>
-    <h2>1. Identificação e Localização das Prateleiras</h2>
+    <h2>1. Exploração Inicial e Identificação das Prateleiras</h2>
+    
     <div class="caixa-resposta">
-      <p><strong>Setor e Acervo:</strong> 2º Andar da Biblioteca Universitária Omar Catunda (Seção de Ciências Exatas e Tecnologias)[cite: 1].</p>
-      <p><strong>Descrição Física das 3 Prateleiras Selecionadas:</strong></p>
+      <p><strong>1. As 3 prateleiras de Estatística estão próximas ou separadas?</strong>[cite: 1]</p>
+      <p><em>Resposta:</em> As 3 prateleiras encontram-se dispostas de forma contígua no mesmo corredor do 2º andar da biblioteca (seção de Ciências Exatas), organizadas sequencialmente na mesma estante vertical[cite: 1].</p>
+    </div>
+
+    <div class="caixa-resposta">
+      <p><strong>2. Vocês reconhecem algum livro? (Bussab & Morettin, Montgomery, etc.)</strong>[cite: 1]</p>
+      <p><em>Resposta:</em> Sim. Foram identificados exemplares de <em>Estatística Básica</em> (Bussab & Morettin) na Prateleira 1 e compêndios clássicos de <em>Planejamento e Análise de Experimentos</em> (Douglas Montgomery) na Prateleira 2[cite: 1].</p>
+    </div>
+
+    <div class="caixa-resposta">
+      <p><strong>3. Qual prateleira parece ter os livros mais antigos?</strong>[cite: 1]</p>
+      <p><em>Resposta:</em> A Prateleira 3 concentra os volumes de aparência mais antiga e encadernações clássicas, abrangendo edições das décadas de 1970 e 1980.</p>
+    </div>
+
+    <div class="caixa-resposta">
+      <p><strong>Descrição Física dos Tratamentos (Prateleiras):</strong></p>
       <ul>
         <li><strong>Prateleira 1 (P1):</strong> Primeira seção vertical da estante de Estatística. Predominam notas de aula, introduções didáticas e apostilas com paginação reduzida.</li>
         <li><strong>Prateleira 2 (P2):</strong> Seção central da estante de Estatística. Concentra compêndios avançados, métodos quantitativos e manuais volumosos de grande espessura.</li>
         <li><strong>Prateleira 3 (P3):</strong> Seção contígua à P2. Contém livros clássicos e textos de inferência estatística com espessura homogênea e regular.</li>
       </ul>
-      <p><strong>Exploração Inicial:</strong> As três seções estão dispostas no mesmo corredor de estantes[cite: 1]. Durante o reconhecimento, foram identificados livros clássicos consagrados da área, incluindo Bussab & Morettin (na P1) e edições de Montgomery (na P2)[cite: 1].</p>
     </div>
   </section>
 
   <!-- 2. Plano de Amostragem e Ordem de Medição -->
   <section>
     <h2>2. Plano de Amostragem e Ordem de Medição</h2>
-    <div class="caixa-resposta">
-      <p>A amostragem foi executada seguindo estritamente a sequência casualizada gerada no R com <code>set.seed(42)</code>, prevenindo vícios de cansaço ou tendenciosidade visual na escolha dos volumes pelos avaliadores.</p>
-    </div>
-
     <div class="table-wrapper">
       <table>
         <thead>
@@ -281,30 +278,30 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="destaque-col">1</td><td>Prateleira 3</td><td>1</td><td>2</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">2</td><td>Prateleira 1</td><td>6</td><td>8</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">3</td><td>Prateleira 3</td><td>6</td><td>4</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">4</td><td>Prateleira 2</td><td>2</td><td>8</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">5</td><td>Prateleira 2</td><td>1</td><td>4</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">6</td><td>Prateleira 2</td><td>7</td><td>2</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">7</td><td>Prateleira 1</td><td>4</td><td>8</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">8</td><td>Prateleira 3</td><td>3</td><td>10</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">9</td><td>Prateleira 3</td><td>4</td><td>11</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">10</td><td>Prateleira 1</td><td>2</td><td>12</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">11</td><td>Prateleira 2</td><td>8</td><td>5</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">12</td><td>Prateleira 1</td><td>8</td><td>12</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">13</td><td>Prateleira 3</td><td>8</td><td>4</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">14</td><td>Prateleira 2</td><td>5</td><td>6</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">15</td><td>Prateleira 2</td><td>3</td><td>1</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">16</td><td>Prateleira 3</td><td>7</td><td>13</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">17</td><td>Prateleira 1</td><td>1</td><td>5</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">18</td><td>Prateleira 3</td><td>2</td><td>3</td><td>Luca</td></tr>
-          <tr><td class="destaque-col">19</td><td>Prateleira 2</td><td>6</td><td>4</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">20</td><td>Prateleira 2</td><td>4</td><td>14</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">21</td><td>Prateleira 3</td><td>5</td><td>10</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">22</td><td>Prateleira 1</td><td>7</td><td>6</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">23</td><td>Prateleira 1</td><td>5</td><td>15</td><td>Vitor</td></tr>
-          <tr><td class="destaque-col">24</td><td>Prateleira 1</td><td>3</td><td>10</td><td>Vitor</td></tr>
+          <tr><td class="destaque-col">1</td><td>Prateleira 3</td><td>1</td><td>2</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">2</td><td>Prateleira 1</td><td>6</td><td>8</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">3</td><td>Prateleira 3</td><td>6</td><td>4</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">4</td><td>Prateleira 2</td><td>2</td><td>8</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">5</td><td>Prateleira 2</td><td>1</td><td>4</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">6</td><td>Prateleira 2</td><td>7</td><td>2</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">7</td><td>Prateleira 1</td><td>4</td><td>8</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">8</td><td>Prateleira 3</td><td>3</td><td>10</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">9</td><td>Prateleira 3</td><td>4</td><td>11</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">10</td><td>Prateleira 1</td><td>2</td><td>12</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">11</td><td>Prateleira 2</td><td>8</td><td>5</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">12</td><td>Prateleira 1</td><td>8</td><td>12</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">13</td><td>Prateleira 3</td><td>8</td><td>4</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">14</td><td>Prateleira 2</td><td>5</td><td>6</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">15</td><td>Prateleira 2</td><td>3</td><td>1</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">16</td><td>Prateleira 3</td><td>7</td><td>13</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">17</td><td>Prateleira 1</td><td>1</td><td>5</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">18</td><td>Prateleira 3</td><td>2</td><td>3</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">19</td><td>Prateleira 2</td><td>6</td><td>4</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">20</td><td>Prateleira 2</td><td>4</td><td>14</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">21</td><td>Prateleira 3</td><td>5</td><td>10</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">22</td><td>Prateleira 1</td><td>7</td><td>6</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">23</td><td>Prateleira 1</td><td>5</td><td>15</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">24</td><td>Prateleira 1</td><td>3</td><td>10</td><td>Aluno 1</td></tr>
         </tbody>
       </table>
     </div>
@@ -402,12 +399,11 @@
       </table>
     </div>
 
-    <!-- Gráfico Boxplot com Todos os Pontos do ggplot2 e Jitter Exato -->
+    <!-- Gráfico Boxplot -->
     <div class="chart-box">
       <div class="chart-title">Distribuição do Número de Páginas por Prateleira (com Jitter)</div>
       <svg viewBox="0 0 760 380" style="max-width: 100%; height: auto; font-family: 'Plus Jakarta Sans', sans-serif;">
         <!-- Linhas de Grade Horizontais -->
-        <!-- Mapeamento vertical: y = 290 - (paginas / 850) * 260 -->
         <line x1="85" y1="290" x2="690" y2="290" stroke="#f1f5f9" stroke-width="1.8" />
         <line x1="85" y1="229" x2="690" y2="229" stroke="#f1f5f9" stroke-width="1.8" />
         <line x1="85" y1="168" x2="690" y2="168" stroke="#f1f5f9" stroke-width="1.8" />
@@ -425,22 +421,17 @@
         <text x="70" y="49" font-size="12" fill="#64748b" text-anchor="end">800</text>
 
         <!-- ================= PRATELEIRA 1 (VERDE) ================= -->
-        <!-- Bigode Superior (até 287) e Inferior (até 120) com T-Bars -->
         <line x1="200" y1="250" x2="200" y2="202" stroke="#047857" stroke-width="2" />
         <line x1="175" y1="202" x2="225" y2="202" stroke="#047857" stroke-width="2" />
         <line x1="200" y1="252" x2="200" y2="253" stroke="#047857" stroke-width="2" />
         <line x1="185" y1="253" x2="215" y2="253" stroke="#047857" stroke-width="2" />
-        <!-- Caixa (Q1=124 a Q3=165, Mediana=124) -->
         <rect x="155" y="240" width="90" height="12" rx="3" fill="#6ee7b7" fill-opacity="0.8" stroke="#047857" stroke-width="2" />
         <line x1="155" y1="252" x2="245" y2="252" stroke="#065f46" stroke-width="2.5" />
         
-        <!-- Os 8 Pontos Reais com Jitter do R da Prateleira 1 -->
-        <!-- 2 pontos em y=287 -->
+        <!-- Pontos P1 -->
         <circle cx="187" cy="202" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="205" cy="202" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 1 ponto em y=120 -->
         <circle cx="178" cy="253" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 5 pontos em y=124 com dispersão horizontal -->
         <circle cx="189" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="198" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="207" cy="252" r="4.2" fill="#1e293b" opacity="0.8" />
@@ -449,51 +440,38 @@
         <text x="200" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 1</text>
 
         <!-- ================= PRATELEIRA 2 (LARANJA) ================= -->
-        <!-- Bigode Superior (até 802) e Inferior (até 308) com T-Bars -->
         <line x1="390" y1="93" x2="390" y2="45" stroke="#c2410c" stroke-width="2" />
         <line x1="365" y1="45" x2="415" y2="45" stroke="#c2410c" stroke-width="2" />
         <line x1="390" y1="185" x2="390" y2="196" stroke="#c2410c" stroke-width="2" />
         <line x1="365" y1="196" x2="415" y2="196" stroke="#c2410c" stroke-width="2" />
-        <!-- Caixa (Q1=345 a Q3=644, Mediana=487) -->
         <rect x="345" y="93" width="90" height="92" rx="4" fill="#fdba74" fill-opacity="0.85" stroke="#c2410c" stroke-width="2" />
         <line x1="345" y1="141" x2="435" y2="141" stroke="#9a3412" stroke-width="3" />
         
-        <!-- Os 8 Pontos Reais com Jitter do R da Prateleira 2 -->
-        <!-- 1 ponto em y=802 (topo absoluto) -->
+        <!-- Pontos P2 -->
         <circle cx="398" cy="45" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 2 pontos em y=644 -->
         <circle cx="367" cy="93" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="377" cy="93" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 2 pontos em y=487 -->
         <circle cx="370" cy="141" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="417" cy="141" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 1 ponto em y=447 -->
         <circle cx="419" cy="153" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 1 ponto em y=333 -->
         <circle cx="396" cy="188" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 1 ponto em y=308 (base) -->
         <circle cx="374" cy="196" r="4.2" fill="#1e293b" opacity="0.8" />
         <text x="390" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 2</text>
 
         <!-- ================= PRATELEIRA 3 (AZUL) ================= -->
-        <!-- Bigode Inferior (até 311) com T-Bar -->
         <line x1="580" y1="162" x2="580" y2="195" stroke="#1d4ed8" stroke-width="2" />
         <line x1="555" y1="195" x2="605" y2="195" stroke="#1d4ed8" stroke-width="2" />
-        <!-- Caixa Compacta (Q1=423 a Q3=430, Mediana=430) -->
         <rect x="535" y="158" width="90" height="4" rx="2" fill="#93c5fd" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="2.5" />
         <line x1="535" y1="158" x2="625" y2="158" stroke="#1e40af" stroke-width="3" />
         
-        <!-- Os 8 Pontos Reais com Jitter do R da Prateleira 3 -->
-        <!-- 6 pontos em torno de y=428 a 430 dispersos sobre a linha da mediana -->
+        <!-- Pontos P3 -->
         <circle cx="561" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="569" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="578" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="590" cy="158" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="576" cy="159" r="4.2" fill="#1e293b" opacity="0.8" />
         <circle cx="616" cy="159" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 1 ponto em y=409 -->
         <circle cx="570" cy="165" r="4.2" fill="#1e293b" opacity="0.8" />
-        <!-- 1 ponto em y=311 (ponto inferior no bigode) -->
         <circle cx="571" cy="195" r="4.2" fill="#1e293b" opacity="0.8" />
         <text x="580" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 3</text>
       </svg>
@@ -503,6 +481,8 @@
   <!-- 5. ANOVA e Pressupostos -->
   <section>
     <h2>5. Análise de Variância (ANOVA) e Pressupostos</h2>
+    
+    <!-- Tabela da ANOVA sem a coluna Decisão -->
     <div class="table-wrapper">
       <table>
         <thead>
@@ -513,25 +493,22 @@
             <th>Quadrado Médio</th>
             <th>Estatística F</th>
             <th>p-valor (Pr &gt; F)</th>
-            <th>Decisão (α = 0,05)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="destaque-col">Prateleira (Entre)</td>
+            <td class="destaque-col">Prateleira</td>
             <td>2</td>
             <td>529.992</td>
             <td>264.996</td>
-            <td><strong>22,26</strong></td>
-            <td><strong>6,47 × 10⁻⁶</strong></td>
-            <td><span class="badge badge-sig">Rejeita H₀</span></td>
+            <td>22,26</td>
+            <td>6,47 × 10⁻⁶</td>
           </tr>
           <tr>
-            <td class="destaque-col">Resíduos (Dentro)</td>
+            <td class="destaque-col">Resíduos</td>
             <td>21</td>
             <td>249.967</td>
             <td>11.903</td>
-            <td>—</td>
             <td>—</td>
             <td>—</td>
           </tr>
@@ -542,86 +519,95 @@
             <td>—</td>
             <td>—</td>
             <td>—</td>
-            <td>—</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Comparações de Tukey -->
-    <div class="caixa-resposta">
-      <p style="font-weight: 700; color: #1e3a8a; margin-bottom: 0.6rem;">Teste de Comparações Múltiplas (Tukey HSD - IC de 95%)</p>
-      <div class="table-wrapper" style="margin-top: 0.5rem; margin-bottom: 0.8rem;">
-        <table>
-          <thead>
-            <tr>
-              <th>Contraste</th>
-              <th>Diferença Estimada</th>
-              <th>Limite Inferior (95%)</th>
-              <th>Limite Superior (95%)</th>
-              <th>p-adj</th>
-              <th>Conclusão</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="destaque-col">Prateleira 2 − Prateleira 1</td>
-              <td>+354,75</td>
-              <td>217,25</td>
-              <td>492,25</td>
-              <td><strong>0,0000056</strong></td>
-              <td><span class="badge badge-sig">Diferença Significativa</span></td>
-            </tr>
-            <tr>
-              <td class="destaque-col">Prateleira 3 − Prateleira 1</td>
-              <td>+248,00</td>
-              <td>110,50</td>
-              <td>385,50</td>
-              <td><strong>0,0004965</strong></td>
-              <td><span class="badge badge-sig">Diferença Significativa</span></td>
-            </tr>
-            <tr>
-              <td class="destaque-col">Prateleira 3 − Prateleira 2</td>
-              <td>−106,75</td>
-              <td>−244,25</td>
-              <td>30,75</td>
-              <td><strong>0,1478751</strong></td>
-              <td><span class="badge badge-nonsig">Não Significativo</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="font-size: 0.93rem; color: var(--text-muted);">
-        * A Prateleira 1 possui um número médio de páginas estatisticamente inferior a ambas as outras prateleiras, enquanto a diferença entre P2 e P3 não atingiu significância estatística.
-      </p>
+    <!-- Tabela de Tukey sem a coluna Conclusão e sem interpretações em texto -->
+    <h3 style="font-size: 1.1rem; color: #1e3a8a; margin-top: 1.8rem; margin-bottom: 0.6rem;">Teste de Comparações Múltiplas (Tukey HSD)</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Contraste</th>
+            <th>Diferença Estimada (diff)</th>
+            <th>Limite Inferior (lwr)</th>
+            <th>Limite Superior (upr)</th>
+            <th>p-adj</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="destaque-col">Prateleira 2 − Prateleira 1</td>
+            <td>+354,75</td>
+            <td>217,25</td>
+            <td>492,25</td>
+            <td>0,0000056</td>
+          </tr>
+          <tr>
+            <td class="destaque-col">Prateleira 3 − Prateleira 1</td>
+            <td>+248,00</td>
+            <td>110,50</td>
+            <td>385,50</td>
+            <td>0,0004965</td>
+          </tr>
+          <tr>
+            <td class="destaque-col">Prateleira 3 − Prateleira 2</td>
+            <td>−106,75</td>
+            <td>−244,25</td>
+            <td>30,75</td>
+            <td>0,1478751</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- Diagnóstico de Pressupostos -->
-    <div class="caixa-resposta" style="border-left-color: #f59e0b;">
-      <p style="font-weight: 700; color: #92400e; margin-bottom: 0.6rem;">Diagnóstico e Validação dos Pressupostos</p>
-      <p>
-        • <strong>Normalidade dos Resíduos (Shapiro-Wilk):</strong> Estatística W = 0,9186 | <strong>p-valor = 0,05439</strong>.<br>
-        <em>Interpretação:</em> Como o p-valor é marginalmente superior ao limiar de 0,05, não rejeitamos a hipótese nula de normalidade ao nível de 5%, embora a proximidade do limiar sugira cautela analítica.
-      </p>
-      <p style="margin-top: 0.6rem;">
-        • <strong>Homocedasticidade das Variâncias (Teste de Levene com base na mediana):</strong> F = 4,065 | <strong>p-valor = 0,03219</strong>.<br>
-        <em>Interpretação:</em> Rejeita-se a hipótese nula de homogeneidade das variâncias a 5%, indicando dispersões heterogêneas (o desvio padrão da P2 é cerca de 4 vezes maior que o da P3).
-      </p>
+    <!-- Diagnóstico dos Pressupostos em formato de Tabela -->
+    <h3 style="font-size: 1.1rem; color: #1e3a8a; margin-top: 1.8rem; margin-bottom: 0.6rem;">Diagnóstico e Testes de Pressupostos</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Pressuposto</th>
+            <th>Teste Estatístico</th>
+            <th>Graus de Liberdade</th>
+            <th>Estatística de Teste</th>
+            <th>p-valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="destaque-col">Normalidade dos Resíduos</td>
+            <td>Shapiro-Wilk</td>
+            <td>—</td>
+            <td>W = 0,9186</td>
+            <td>0,05439</td>
+          </tr>
+          <tr>
+            <td class="destaque-col">Homocedasticidade</td>
+            <td>Levene (centro = mediana)</td>
+            <td>Df1 = 2, Df2 = 21</td>
+            <td>F = 4,065</td>
+            <td>0,03219</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
   <!-- 6. Conclusão -->
   <section>
-    <h2>6. Conclusão e Discussão Crítica</h2>
+    <h2>6. Conclusão</h2>
     <div class="caixa-resposta">
       <p>
-        Com base no teste F da Análise de Variância (F = 22,26; p = 6,47 × 10⁻⁶), <strong>rejeitou-se a hipótese nula H₀</strong> ao nível de 5% de significância[cite: 1]. Constata-se que o número médio de páginas difere de maneira significativa entre as prateleiras do acervo de Estatística da biblioteca[cite: 1].
+        Com base no teste F da Análise de Variância (F = 22,26; p = 6,47 × 10⁻⁶), rejeitou-se a hipótese nula de igualdade de médias ao nível de significância de 5%[cite: 1]. Constata-se que o número de páginas difere significativamente entre as prateleiras de Estatística analisadas[cite: 1].
       </p>
       <p>
-        O teste a posteriori de Tukey indicou que a <strong>Prateleira 1 possui média expressivamente menor</strong> (164,25 páginas) quando confrontada com a Prateleira 2 (519,00 páginas; p &lt; 0,001) e com a Prateleira 3 (412,25 páginas; p &lt; 0,001)[cite: 1]. Entre a Prateleira 2 e a Prateleira 3, não houve evidência estatística de diferença de médias (p = 0,148)[cite: 1].
+        O teste de Tukey indicou que a Prateleira 1 apresenta média de páginas significativamente inferior à Prateleira 2 (p &lt; 0,001) e à Prateleira 3 (p &lt; 0,001)[cite: 1]. Entre as Prateleiras 2 e 3, não houve evidência estatística de diferença (p = 0,148)[cite: 1].
       </p>
       <p>
-        <strong>Significado Prático e Limitações:</strong> Esta disparidade reflete a setorização bibliográfica do acervo: a P1 reúne apostilas e volumes introdutórios mais compactos, enquanto a P2 e a P3 congregam livros-texto densos e manuais metodológicos aprofundados[cite: 1]. A principal limitação metodológica observada foi a quebra do pressuposto de homocedasticidade (Levene com p = 0,032)[cite: 1], explicada pela alta variabilidade interna da P2 (DP = 168,05) em relação à P3 (DP = 41,55). Como melhoria para experimentos futuros, sugere-se a transformação matemática da resposta (ex.: logaritmo) ou a adoção de um teste não-paramétrico de Kruskal-Wallis.
+        <strong>Significado Prático e Limitações:</strong> Os resultados refletem a setorização temático-didática da biblioteca, na qual manuais aprofundados e textos introdutórios concentram-se em seções distintas[cite: 1]. A principal limitação reside na rejeição da homocedasticidade pelo teste de Levene (p = 0,032)[cite: 1], sugerindo que estudos subsequentes apliquem transformações à resposta ou utilizem abordagens não-paramétricas.
       </p>
     </div>
   </section>
@@ -640,18 +626,18 @@
         <tbody>
           <tr>
             <td class="destaque-col">Caçadores de livros raros[cite: 1]</td>
-            <td>O exemplar mais antigo encontrado pelo grupo na amostragem foi uma obra introdutória de inferência datada de 1978, localizada na Prateleira 3.</td>
+            <td>O exemplar mais antigo catalogado pelo grupo na amostragem foi uma obra introdutória de inferência datada de 1978, localizada na Prateleira 3.</td>
           </tr>
           <tr>
             <td class="destaque-col">O mais grosso e o mais fino[cite: 1]</td>
             <td>
-              • <strong>Extremo Superior (Mais Grosso):</strong> Livro ID 4 na Prateleira 2, com <strong>802 páginas</strong>.<br>
-              • <strong>Extremo Inferior (Mais Fino):</strong> Livro ID 6 na Prateleira 1, com <strong>120 páginas</strong>.
+              • <strong>Mais Grosso:</strong> Livro ID 4 na Prateleira 2, com <strong>802 páginas</strong>.<br>
+              • <strong>Mais Fino:</strong> Livro ID 6 na Prateleira 1, com <strong>120 páginas</strong>.
             </td>
           </tr>
           <tr>
             <td class="destaque-col">Meta-experimento[cite: 1]</td>
-            <td>Em um próximo experimento, incluiríamos a espessura da lombada (medida em milímetros com paquímetro) para evitar o viés da gramatura de folhas de edições antigas vs. modernas[cite: 1], além de adotar um Delineamento em Blocos Casualizados (DBC) considerando o nível de altura das prateleiras na estante.</td>
+            <td>Em repetições futuras, recomenda-se mensurar diretamente a espessura em milímetros com paquímetro para neutralizar o efeito da gramatura das páginas, além de adotar um Delineamento em Blocos Casualizados (DBC) considerando o nível de altura das prateleiras[cite: 1].</td>
           </tr>
         </tbody>
       </table>
