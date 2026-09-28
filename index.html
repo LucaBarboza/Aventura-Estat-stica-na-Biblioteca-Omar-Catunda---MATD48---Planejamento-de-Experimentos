@@ -10,7 +10,6 @@
   <style>
     :root {
       --primary: #1e40af;
-      --primary-soft: #eff6ff;
       --secondary: #0d9488;
       --bg: #f1f5f9;
       --card-bg: #ffffff;
@@ -36,7 +35,7 @@
     }
 
     .container {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       background: var(--card-bg);
       padding: 3.5rem;
@@ -109,7 +108,7 @@
       border-radius: 4px;
     }
 
-    /* Caixas de Resposta Bonitas */
+    /* Caixas de Resposta */
     .caixa-resposta {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -139,7 +138,7 @@
       font-size: 0.98rem;
     }
 
-    /* Tabelas Elegantes e Espaçosas */
+    /* Tabelas */
     .table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -188,7 +187,7 @@
       color: #0f172a;
     }
 
-    /* Tags de Status e P-valor */
+    /* Badges */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -209,29 +208,21 @@
       color: #64748b;
     }
 
-    /* Gráfico Estilizado */
+    /* Container do Gráfico */
     .chart-box {
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 16px;
-      padding: 2rem;
+      padding: 1.8rem;
       margin: 1.8rem 0;
-      text-align: center;
       box-shadow: var(--shadow-sm);
-    }
-
-    .chart-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #334155;
-      margin-bottom: 1.2rem;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Cabeçalho -->
+  <!-- Cabeçalho Principal -->
   <header>
     <h1>Relatório Final do Experimento (DIC)</h1>
     <p style="opacity: 0.9; font-size: 1.05rem;">Aventura Estatística no Acervo da Biblioteca Omar Catunda</p>
@@ -259,14 +250,14 @@
   <section>
     <h2>1. Identificação e Localização das Prateleiras</h2>
     <div class="caixa-resposta">
-      <p><strong>Setor e Acervo:</strong> 2º Andar da Biblioteca Universitária Omar Catunda (Seção de Ciências Exatas e Tecnologias).</p>
+      <p><strong>Setor e Acervo:</strong> 2º Andar da Biblioteca Universitária Omar Catunda (Seção de Exatas e Tecnologias).</p>
       <p><strong>Descrição Física das 3 Prateleiras Selecionadas:</strong></p>
       <ul>
-        <li><strong>Prateleira 1 (P1):</strong> Primeira seção vertical da estante de Estatística. Predominam notas de aula, introduções metodológicas e textos didáticos mais curtos.</li>
-        <li><strong>Prateleira 2 (P2):</strong> Seção central da estante de Estatística. Reúne manuais de grande porte, livros avançados de probabilidade aplicada e métodos numéricos volumosos.</li>
-        <li><strong>Prateleira 3 (P3):</strong> Seção contígua à P2. Contém livros clássicos e manuais de inferência com espessura mais uniforme e regular.</li>
+        <li><strong>Prateleira 1 (P1):</strong> Primeira seção vertical da estante de Estatística. Concentra livros-texto de introdução à estatística, apostilas departamentais e volumes de menor espessura.</li>
+        <li><strong>Prateleira 2 (P2):</strong> Seção central da estante de Estatística. Reúne manuais de grande porte, manuais de probabilidade aplicada, métodos multivariados e computação estatística volumosa.</li>
+        <li><strong>Prateleira 3 (P3):</strong> Seção contígua à P2. Contém livros clássicos e manuais de inferência teórica, apresentando volumes com espessura mais padronizada.</li>
       </ul>
-      <p><strong>Exploração Inicial:</strong> As três seções estão no mesmo corredor vertical. Foram identificados títulos clássicos durante o reconhecimento, como as obras de Bussab & Morettin (na P1) e manuais extensos de Montgomery (na P2).</p>
+      <p><strong>Exploração Inicial:</strong> As três seções estão situadas no mesmo corredor contínuo de estantes. Durante a inspeção preliminar, identificaram-se clássicos da área, incluindo exemplares de Bussab & Morettin (na P1) e edições extensas de Montgomery (na P2).</p>
     </div>
   </section>
 
@@ -274,7 +265,7 @@
   <section>
     <h2>2. Plano de Amostragem e Ordem de Medição</h2>
     <div class="caixa-resposta">
-      <p>A amostragem foi executada seguindo estritamente a sequência aleatória obtida no R com a função <code>sample()</code> (semente 42), garantindo a casualização e minimizando qualquer viés de fadiga ou preferência visual dos avaliadores.</p>
+      <p>A ordem de coleta seguiu estritamente a sequência casualizada gerada pelo R (com <code>set.seed(42)</code>), garantindo a casualização total exigida pelo DIC e prevenindo viés por preferência visual ou fadiga dos avaliadores.</p>
     </div>
 
     <div class="table-wrapper">
@@ -285,7 +276,7 @@
             <th>Tratamento (Prateleira)</th>
             <th>ID Livro</th>
             <th>Posição Sorteada</th>
-            <th>Aluno Avaliador</th>
+            <th>Avaliador</th>
           </tr>
         </thead>
         <tbody>
@@ -410,62 +401,90 @@
       </table>
     </div>
 
-    <!-- Gráfico Boxplot SVG Aprimorado -->
+    <!-- Gráfico SVG Idêntico ao ggplot2 -->
     <div class="chart-box">
-      <div class="chart-title">Distribuição do Número de Páginas por Prateleira (com Jitter)</div>
-      <svg viewBox="0 0 650 330" style="max-width: 100%; height: auto;">
-        <!-- Linhas de Grade de Fundo -->
-        <line x1="75" y1="260" x2="600" y2="260" stroke="#f1f5f9" stroke-width="1.5" />
-        <line x1="75" y1="205" x2="600" y2="205" stroke="#f1f5f9" stroke-width="1.5" />
-        <line x1="75" y1="150" x2="600" y2="150" stroke="#f1f5f9" stroke-width="1.5" />
-        <line x1="75" y1="95" x2="600" y2="95" stroke="#f1f5f9" stroke-width="1.5" />
-        <line x1="75" y1="40" x2="600" y2="40" stroke="#f1f5f9" stroke-width="1.5" />
+      <svg viewBox="0 0 950 500" style="width: 100%; height: auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        <!-- Título do gráfico -->
+        <text x="35" y="32" font-size="16" fill="#111827" font-weight="500">Distribuição do número de páginas por prateleira</text>
 
-        <!-- Eixos Principais -->
-        <line x1="75" y1="260" x2="600" y2="260" stroke="#cbd5e1" stroke-width="1.5" />
-        <line x1="75" y1="30" x2="75" y2="260" stroke="#cbd5e1" stroke-width="1.5" />
+        <!-- Linhas de grade do theme_minimal() -->
+        <line x1="190" y1="50" x2="190" y2="430" stroke="#f3f4f6" stroke-width="1.5" />
+        <line x1="430" y1="50" x2="430" y2="430" stroke="#f3f4f6" stroke-width="1.5" />
+        <line x1="670" y1="50" x2="670" y2="430" stroke="#f3f4f6" stroke-width="1.5" />
+
+        <line x1="75" y1="70" x2="790" y2="70" stroke="#f3f4f6" stroke-width="1.5" />
+        <line x1="75" y1="160" x2="790" y2="160" stroke="#f3f4f6" stroke-width="1.5" />
+        <line x1="75" y1="250" x2="790" y2="250" stroke="#f3f4f6" stroke-width="1.5" />
+        <line x1="75" y1="340" x2="790" y2="340" stroke="#f3f4f6" stroke-width="1.5" />
+        <line x1="75" y1="430" x2="790" y2="430" stroke="#f3f4f6" stroke-width="1.5" />
 
         <!-- Rótulos do Eixo Y -->
-        <text x="60" y="264" font-size="11" fill="#64748b" text-anchor="end">0</text>
-        <text x="60" y="209" font-size="11" fill="#64748b" text-anchor="end">200</text>
-        <text x="60" y="154" font-size="11" fill="#64748b" text-anchor="end">400</text>
-        <text x="60" y="99" font-size="11" fill="#64748b" text-anchor="end">600</text>
-        <text x="60" y="44" font-size="11" fill="#64748b" text-anchor="end">800</text>
+        <text x="65" y="74" font-size="12" fill="#4b5563" text-anchor="end">800</text>
+        <text x="65" y="164" font-size="12" fill="#4b5563" text-anchor="end">600</text>
+        <text x="65" y="254" font-size="12" fill="#4b5563" text-anchor="end">400</text>
+        <text x="65" y="344" font-size="12" fill="#4b5563" text-anchor="end">200</text>
 
-        <!-- Boxplot Prateleira 1 -->
-        <line x1="165" y1="181" x2="165" y2="227" stroke="#334155" stroke-width="1.5" />
-        <line x1="145" y1="181" x2="185" y2="181" stroke="#334155" stroke-width="1.5" />
-        <line x1="145" y1="227" x2="185" y2="227" stroke="#334155" stroke-width="1.5" />
-        <rect x="130" y="226" width="70" height="4" rx="2" fill="#6ee7b7" stroke="#047857" stroke-width="1.5" />
-        <line x1="130" y1="226" x2="200" y2="226" stroke="#065f46" stroke-width="2.5" />
-        <!-- Pontos Jitter P1 -->
-        <circle cx="163" cy="226" r="4.5" fill="#047857" opacity="0.65" />
-        <circle cx="168" cy="181" r="4.5" fill="#047857" opacity="0.65" />
-        <text x="165" y="290" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 1</text>
+        <!-- Título do Eixo Y -->
+        <text x="-250" y="22" font-size="13" fill="#111827" text-anchor="middle" transform="rotate(-90)">Número de páginas</text>
 
-        <!-- Boxplot Prateleira 2 -->
-        <line x1="335" y1="40" x2="335" y2="175" stroke="#334155" stroke-width="1.5" />
-        <line x1="315" y1="40" x2="355" y2="40" stroke="#334155" stroke-width="1.5" />
-        <line x1="315" y1="175" x2="355" y2="175" stroke="#334155" stroke-width="1.5" />
-        <rect x="300" y="83" width="70" height="83" rx="2" fill="#fdba74" stroke="#c2410c" stroke-width="1.5" />
-        <line x1="300" y1="126" x2="370" y2="126" stroke="#9a3412" stroke-width="2.5" />
-        <!-- Pontos Jitter P2 -->
-        <circle cx="330" cy="40" r="4.5" fill="#c2410c" opacity="0.65" />
-        <circle cx="342" cy="83" r="4.5" fill="#c2410c" opacity="0.65" />
-        <circle cx="332" cy="126" r="4.5" fill="#c2410c" opacity="0.65" />
-        <circle cx="325" cy="175" r="4.5" fill="#c2410c" opacity="0.65" />
-        <text x="335" y="290" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 2</text>
+        <!-- Prateleira 1 -->
+        <line x1="190" y1="356" x2="190" y2="356" stroke="#333333" stroke-width="1.2" />
+        <line x1="190" y1="376" x2="190" y2="376" stroke="#333333" stroke-width="1.2" />
+        <rect x="120" y="356" width="140" height="20" fill="#66c2a5" fill-opacity="0.75" stroke="#333333" stroke-width="1.2" />
+        <line x1="120" y1="374" x2="260" y2="374" stroke="#333333" stroke-width="2.5" />
+        <circle cx="160" cy="374" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="172" cy="374" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="180" cy="374" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="195" cy="374" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="205" cy="374" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="212" cy="376" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="178" cy="301" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="190" cy="301" r="3.2" fill="#222222" opacity="0.8" />
 
-        <!-- Boxplot Prateleira 3 -->
-        <line x1="505" y1="142" x2="505" y2="174" stroke="#334155" stroke-width="1.5" />
-        <line x1="485" y1="142" x2="525" y2="142" stroke="#334155" stroke-width="1.5" />
-        <line x1="485" y1="174" x2="525" y2="174" stroke="#334155" stroke-width="1.5" />
-        <rect x="470" y="142" width="70" height="2" rx="1" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5" />
-        <line x1="470" y1="142" x2="540" y2="142" stroke="#1e40af" stroke-width="2.5" />
-        <!-- Pontos Jitter P3 -->
-        <circle cx="508" cy="142" r="4.5" fill="#1d4ed8" opacity="0.65" />
-        <circle cx="498" cy="174" r="4.5" fill="#1d4ed8" opacity="0.65" />
-        <text x="505" y="290" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 3</text>
+        <!-- Prateleira 2 -->
+        <line x1="430" y1="69" x2="430" y2="140" stroke="#333333" stroke-width="1.2" />
+        <line x1="430" y1="243" x2="430" y2="291" stroke="#333333" stroke-width="1.2" />
+        <rect x="360" y="140" width="140" height="103" fill="#fc8d62" fill-opacity="0.75" stroke="#333333" stroke-width="1.2" />
+        <line x1="360" y1="211" x2="500" y2="211" stroke="#333333" stroke-width="2.5" />
+        <circle cx="438" cy="69" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="408" cy="140" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="415" cy="140" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="408" cy="211" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="458" cy="211" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="463" cy="229" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="425" cy="291" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="403" cy="280" r="3.2" fill="#222222" opacity="0.8" />
+
+        <!-- Prateleira 3 -->
+        <line x1="670" y1="237" x2="670" y2="237" stroke="#333333" stroke-width="1.2" />
+        <line x1="670" y1="242" x2="670" y2="242" stroke="#333333" stroke-width="1.2" />
+        <rect x="600" y="237" width="140" height="5" fill="#8da0cb" fill-opacity="0.75" stroke="#333333" stroke-width="1.2" />
+        <line x1="600" y1="237" x2="740" y2="237" stroke="#333333" stroke-width="2.5" />
+        <circle cx="642" cy="237" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="653" cy="237" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="663" cy="237" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="673" cy="237" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="648" cy="238" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="668" cy="246" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="692" cy="246" r="3.2" fill="#222222" opacity="0.8" />
+        <circle cx="668" cy="290" r="3.2" fill="#222222" opacity="0.8" />
+
+        <!-- Rótulos do Eixo X -->
+        <text x="190" y="455" font-size="12" fill="#374151" text-anchor="middle">Prateleira 1</text>
+        <text x="430" y="455" font-size="12" fill="#374151" text-anchor="middle">Prateleira 2</text>
+        <text x="670" y="455" font-size="12" fill="#374151" text-anchor="middle">Prateleira 3</text>
+        <text x="430" y="485" font-size="13" fill="#111827" text-anchor="middle">Prateleira de Estatística</text>
+
+        <!-- Legenda Lateral -->
+        <g transform="translate(815, 220)">
+          <text x="0" y="0" font-size="12" fill="#111827">prateleira</text>
+          <circle cx="6" cy="18" r="3" fill="#222222" />
+          <text x="18" y="22" font-size="11" fill="#374151">Prateleira 1</text>
+          <circle cx="6" cy="36" r="3" fill="#222222" />
+          <text x="18" y="40" font-size="11" fill="#374151">Prateleira 2</text>
+          <circle cx="6" cy="54" r="3" fill="#222222" />
+          <text x="18" y="58" font-size="11" fill="#374151">Prateleira 3</text>
+        </g>
       </svg>
     </div>
   </section>
@@ -518,9 +537,9 @@
       </table>
     </div>
 
-    <!-- Comparações de Tukey -->
+    <!-- Comparações Múltiplas (Tukey) -->
     <div class="caixa-resposta">
-      <p style="font-weight: 700; color: #1e3a8a; margin-bottom: 0.6rem;">Teste de Comparações Múltiplas (Tukey HSD - IC de 95%)</p>
+      <p style="font-weight: 700; color: #1e3a8a; margin-bottom: 0.6rem;">Teste de Comparações Múltiplas (Tukey HSD - 95% de Confiança)</p>
       <div class="table-wrapper" style="margin-top: 0.5rem; margin-bottom: 0.8rem;">
         <table>
           <thead>
@@ -562,20 +581,20 @@
         </table>
       </div>
       <p style="font-size: 0.93rem; color: var(--text-muted);">
-        * A Prateleira 1 possui um número médio de páginas estatisticamente inferior a ambas as outras prateleiras, enquanto a diferença entre P2 e P3 não atingiu significância estatística.
+        * A Prateleira 1 possui paginação média significativamente menor que as demais prateleiras, ao passo que entre a Prateleira 2 e a Prateleira 3 a diferença não atingiu significância estatística.
       </p>
     </div>
 
-    <!-- Diagnóstico de Pressupostos -->
+    <!-- Diagnóstico dos Pressupostos -->
     <div class="caixa-resposta" style="border-left-color: #f59e0b;">
       <p style="font-weight: 700; color: #92400e; margin-bottom: 0.6rem;">Diagnóstico e Validação dos Pressupostos</p>
       <p>
         • <strong>Normalidade dos Resíduos (Shapiro-Wilk):</strong> Estatística W = 0,9186 | <strong>p-valor = 0,05439</strong>.<br>
-        <em>Interpretação:</em> Como o p-valor é marginalmente superior ao limiar de 0,05, não rejeitamos a hipótese nula de normalidade ao nível de 5%, embora a proximidade do limiar sugira cautela analítica.
+        <em>Interpretação:</em> Uma vez que o p-valor é marginalmente superior a 0,05, não se rejeita a hipótese nula de normalidade dos erros a 5%, embora a proximidade do limiar exija cautela.
       </p>
       <p style="margin-top: 0.6rem;">
         • <strong>Homocedasticidade das Variâncias (Teste de Levene com base na mediana):</strong> F = 4,065 | <strong>p-valor = 0,03219</strong>.<br>
-        <em>Interpretação:</em> Rejeita-se a hipótese nula de homogeneidade das variâncias a 5%, indicando dispersões heterogêneas (o desvio padrão da P2 é cerca de 4 vezes maior que o da P3).
+        <em>Interpretação:</em> Rejeita-se a igualdade de variâncias entre os grupos a 5% de significância (heterocedasticidade), impulsionada pela grande dispersão da Prateleira 2 (DP = 168,05) em relação à Prateleira 3 (DP = 41,55).
       </p>
     </div>
   </section>
@@ -585,13 +604,13 @@
     <h2>6. Conclusão e Discussão Crítica</h2>
     <div class="caixa-resposta">
       <p>
-        Com base no teste F da Análise de Variância (F = 22,26; p = 6,47 × 10⁻⁶), <strong>rejeitou-se a hipótese nula H₀</strong> ao nível de 5% de significância. Constata-se que o número médio de páginas difere de maneira significativa entre as prateleiras do acervo de Estatística da biblioteca.
+        A partir da Análise de Variância (F = 22,26; p = 6,47 × 10⁻⁶), <strong>rejeitou-se a hipótese nula H₀</strong> a um nível de 5% de significância, comprovando que o número médio de páginas dos livros difere de forma relevante entre as prateleiras da seção de Estatística da biblioteca.
       </p>
       <p>
-        O teste a posteriori de Tukey indicou que a <strong>Prateleira 1 possui média expressivamente menor</strong> (164,25 páginas) quando confrontada com a Prateleira 2 (519,00 páginas; p &lt; 0,001) e com a Prateleira 3 (412,25 páginas; p &lt; 0,001). Entre a Prateleira 2 e a Prateleira 3, não houve evidência estatística de diferença de médias (p = 0,148).
+        O procedimento de comparações múltiplas de Tukey detalhou que a <strong>Prateleira 1 possui média substancialmente inferior</strong> (164,25 páginas) quando confrontada com a Prateleira 2 (519,00 páginas; p &lt; 0,001) e com a Prateleira 3 (412,25 páginas; p &lt; 0,001). Já entre a Prateleira 2 e a Prateleira 3 não se observou diferença significativa (p = 0,148).
       </p>
       <p>
-        <strong>Significado Prático e Limitações:</strong> Esta disparidade reflete a setorização bibliográfica do acervo: a P1 reúne apostilas e volumes introdutórios mais compactos, enquanto a P2 e a P3 congregam livros-texto densos e manuais metodológicos aprofundados. A principal limitação metodológica observada foi a quebra do pressuposto de homocedasticidade (Levene com p = 0,032), explicada pela alta variabilidade interna da P2 (DP = 168,05) em relação à P3 (DP = 41,55). Como melhoria para experimentos futuros, sugere-se a transformação matemática da resposta (ex.: logaritmo) ou a adoção de um teste não-paramétrico de Kruskal-Wallis.
+        <strong>Significado Prático e Limitações:</strong> Esses achados espelham a própria organização de acervo: na P1 localizam-se livros introdutórios e apostilas com textos mais sintéticos, enquanto a P2 e a P3 abrigam manuais de referência abrangentes (como Montgomery) e compêndios teóricos mais longos. A principal limitação metodológica identificada consiste na violação da homocedasticidade (Levene com p = 0,032), provocada pela heterogeneidade de edições na P2. Em trabalhos subsequentes, recomenda-se aplicar transformação na variável resposta (como logaritmo) ou utilizar alternativas não paramétricas (teste de Kruskal-Wallis).
       </p>
     </div>
   </section>
@@ -610,18 +629,18 @@
         <tbody>
           <tr>
             <td class="destaque-col">Caçadores de livros raros</td>
-            <td>O exemplar mais antigo encontrado pelo grupo na amostragem foi uma obra introdutória de inferência datada de 1978, localizada na Prateleira 3.</td>
+            <td>O livro de publicação mais antiga identificado durante a amostragem foi uma obra introdutória de inferência estatística de 1978, catalogada na Prateleira 3.</td>
           </tr>
           <tr>
             <td class="destaque-col">O mais grosso e o mais fino</td>
             <td>
-              • <strong>Extremo Superior (Mais Grosso):</strong> Livro ID 4 na Prateleira 2, com <strong>802 páginas</strong>.<br>
-              • <strong>Extremo Inferior (Mais Fino):</strong> Livro ID 6 na Prateleira 1, com <strong>120 páginas</strong>.
+              • <strong>Extremo Superior (Mais Grosso):</strong> Livro ID 4 da Prateleira 2, contendo <strong>802 páginas</strong>.<br>
+              • <strong>Extremo Inferior (Mais Fino):</strong> Livro ID 6 da Prateleira 1, contendo <strong>120 páginas</strong>.
             </td>
           </tr>
           <tr>
             <td class="destaque-col">Meta-experimento</td>
-            <td>Em um próximo experimento, incluiríamos a espessura da lombada (medida em milímetros com paquímetro) para evitar o viés da gramatura de folhas de edições antigas vs. modernas, além de adotar um Delineamento em Blocos Casualizados (DBC) considerando o nível de altura das prateleiras na estante.</td>
+            <td>Para refazer o experimento de modo mais refinado, utilizaríamos a espessura física da lombada (medida em mm via paquímetro) para neutralizar variações na gramatura do papel entre edições novas e antigas, além de aplicar um Delineamento em Blocos Casualizados (DBC) considerando o nível de altura das prateleiras na estante.</td>
           </tr>
         </tbody>
       </table>
