@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aventura Estatística na Biblioteca Omar Catunda - MATD28</title>
+  <title>Relatório do Experimento - Biblioteca Omar Catunda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1e3a8a;
-      --primary-light: #3b82f6;
-      --secondary: #0f766e;
-      --bg: #f8fafc;
+      --primary: #1e40af;
+      --primary-soft: #eff6ff;
+      --secondary: #0d9488;
+      --bg: #f1f5f9;
       --card-bg: #ffffff;
-      --text: #1e293b;
+      --text: #0f172a;
       --text-muted: #64748b;
       --border: #e2e8f0;
-      --highlight: #f0fdf4;
-      --code-bg: #1e1e1e;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.04);
     }
 
     * {
@@ -25,117 +28,154 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
       color: var(--text);
       background-color: var(--bg);
-      padding: 2rem 1rem;
+      padding: 3rem 1.2rem;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 960px;
       margin: 0 auto;
       background: var(--card-bg);
-      padding: 3rem 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      padding: 3.5rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(226, 232, 240, 0.8);
     }
 
+    /* Cabeçalho */
     header {
-      border-bottom: 3px solid var(--primary);
-      padding-bottom: 1.5rem;
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      padding: 2.2rem 2.5rem;
+      border-radius: 16px;
       margin-bottom: 2.5rem;
+      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
     }
 
-    h1 {
-      font-size: 2.2rem;
-      color: var(--primary);
-      margin-bottom: 0.3rem;
-      line-height: 1.2;
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
     }
 
-    .subtitle {
-      font-size: 1.2rem;
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+      font-size: 0.92rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 1.2rem;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .meta-item span:first-child {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+    }
+
+    .meta-item span:last-child {
       font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
     }
 
-    .meta-box {
-      background: #eff6ff;
-      border-left: 4px solid var(--primary-light);
-      padding: 1rem;
-      border-radius: 4px;
-      font-size: 0.95rem;
-      margin-top: 1rem;
-    }
-
+    /* Títulos de Seções */
     h2 {
-      font-size: 1.5rem;
-      color: var(--primary);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1e293b;
       margin-top: 2.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.4rem;
+      gap: 0.6rem;
     }
 
-    h3 {
-      font-size: 1.2rem;
-      color: var(--secondary);
-      margin-top: 1.5rem;
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 22px;
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    /* Caixas de Resposta Bonitas */
+    .caixa-resposta {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .caixa-resposta p {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+
+    .caixa-resposta p:last-child {
+      margin-bottom: 0;
+    }
+
+    .caixa-resposta ul {
+      margin-left: 1.4rem;
       margin-bottom: 0.8rem;
     }
 
-    p {
-      margin-bottom: 1rem;
-      font-size: 1.05rem;
+    .caixa-resposta li {
+      margin-bottom: 0.4rem;
+      font-size: 0.98rem;
     }
 
-    ul, ol {
-      margin-bottom: 1.2rem;
-      padding-left: 1.5rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Tabelas Amplas e Legíveis */
-    .table-container {
+    /* Tabelas Elegantes e Espaçosas */
+    .table-wrapper {
       width: 100%;
       overflow-x: auto;
-      margin: 1.5rem 0 2rem 0;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      border: 1px solid var(--border);
+      margin: 1.2rem 0 2rem 0;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
     }
 
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.95rem;
       text-align: left;
-      font-size: 1.02rem;
-      background: white;
-    }
-
-    th, td {
-      padding: 14px 18px;
-      border-bottom: 1px solid var(--border);
+      background: #ffffff;
     }
 
     th {
-      background-color: #f1f5f9;
-      color: #334155;
-      font-weight: 700;
-      text-transform: uppercase;
+      background-color: #f8fafc;
+      color: #475569;
+      font-weight: 600;
       font-size: 0.85rem;
+      text-transform: uppercase;
       letter-spacing: 0.05em;
+      padding: 14px 18px;
+      border-bottom: 2px solid #e2e8f0;
     }
 
-    tr:last-child td {
+    td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+    }
+
+    tbody tr:last-child td {
       border-bottom: none;
     }
 
@@ -143,329 +183,195 @@
       background-color: #f8fafc;
     }
 
-    /* Respostas e Anotações Fixadas no Código */
-    .resposta-box {
-      background: #fafafa;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 1.2rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .resposta-box strong {
-      color: var(--primary);
-    }
-
-    .code-block {
-      background: var(--code-bg);
-      color: #e2e8f0;
-      padding: 1.2rem;
-      border-radius: 8px;
-      font-family: "Fira Code", Consolas, Monaco, monospace;
-      font-size: 0.9rem;
-      overflow-x: auto;
-      margin-bottom: 1.5rem;
-      line-height: 1.4;
-    }
-
-    .info-callout {
-      background: #fffbeb;
-      border-left: 4px solid #f59e0b;
-      padding: 1rem 1.2rem;
-      border-radius: 4px;
-      margin: 1.5rem 0;
-    }
-
-    .anexo-box {
-      background: #f1f5f9;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-top: 2rem;
-    }
-
-    .destaque {
+    .destaque-col {
       font-weight: 600;
-      color: var(--primary);
+      color: #0f172a;
+    }
+
+    /* Tags de Status e P-valor */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-sig {
+      background-color: #dcfce7;
+      color: #166534;
+    }
+
+    .badge-nonsig {
+      background-color: #f1f5f9;
+      color: #64748b;
+    }
+
+    /* Gráfico Estilizado */
+    .chart-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 1.8rem 0;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .chart-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 1.2rem;
     }
   </style>
 </head>
 <body>
 
 <div class="container">
+  <!-- Cabeçalho -->
   <header>
-    <h1>Aventura Estatística na Biblioteca Omar Catunda</h1>
-    <div class="subtitle">MATD28 - Planejamento de Experimentos</div>
-    <div class="meta-box">
-      <strong>Grupo:</strong> [Preencha os nomes dos integrantes do grupo aqui]<br>
-      <strong>Data do Experimento:</strong> [Inserir Data] | <strong>Horário:</strong> 10:40 - 12:30
+    <h1>Relatório Final do Experimento (DIC)</h1>
+    <p style="opacity: 0.9; font-size: 1.05rem;">Aventura Estatística no Acervo da Biblioteca Omar Catunda</p>
+    <div class="meta-grid">
+      <div class="meta-item">
+        <span>Disciplina</span>
+        <span>MATD28 – Planej. de Experimentos</span>
+      </div>
+      <div class="meta-item">
+        <span>Local</span>
+        <span>UFBA - Campus de Ondina</span>
+      </div>
+      <div class="meta-item">
+        <span>Configuração</span>
+        <span>Semente: 42 | 3 Níveis | n = 8</span>
+      </div>
+      <div class="meta-item">
+        <span>Variável Resposta</span>
+        <span>Número de Páginas</span>
+      </div>
     </div>
   </header>
 
-  <!-- Missão -->
+  <!-- 1. Identificação das Prateleiras -->
   <section>
-    <h2>Missão</h2>
-    <p>
-      Vocês vão até a Biblioteca Universitária de Ciências e Tecnologias Professor Omar Catunda (UFBA, Campus de Ondina) para investigar uma pergunta curiosa:
-    </p>
-    <p><em>Os livros de Estatística são todos "iguais"? Ou será que até dentro da mesma área existem diferenças?</em></p>
-    <p>
-      A atividade acontece no horário da aula (10:40-12:30). A biblioteca está aberta de segunda a sexta, das 7h às 19h, então vocês têm tempo de sobra.
-    </p>
-    <p>
-      <strong>O objetivo é duplo:</strong><br>
-      1. Aplicar na prática um Delineamento Inteiramente Casualizado (DIC).<br>
-      2. Conhecer o acervo de Estatística da biblioteca e descobrir o que ele tem de interessante.
-    </p>
-  </section>
-
-  <!-- Parte 1 -->
-  <section>
-    <h2>☑ Parte 1 - Localizando o tesouro</h2>
-    <p>
-      A biblioteca fica no Campus de Ondina, em frente ao Instituto de Física e atrás da Faculdade de Arquitetura. O acervo de Estatística está no 2º andar, junto com as demais áreas de exatas (Matemática, Computação, Física, Química, Geociências).
-    </p>
-
-    <h3>Informações gerais</h3>
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th style="width: 30%;">Item</th>
-            <th>Informação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Endereço</strong></td>
-            <td>Rua Barão de Jeremoabo, s/n - Campus de Ondina</td>
-          </tr>
-          <tr>
-            <td><strong>Horário</strong></td>
-            <td>Segunda a sexta, 7h às 19h</td>
-          </tr>
-          <tr>
-            <td><strong>Andar do acervo</strong></td>
-            <td>2º andar</td>
-          </tr>
-          <tr>
-            <td><strong>O que vocês vão encontrar</strong></td>
-            <td>Livros de Estatística, Matemática, Física, Química, Computação</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Tarefa rápida de exploração (5 minutos)</h3>
-    <p>
-      Antes de começar a medir, localizem a seção de Estatística. Vocês devem encontrar 3 prateleiras (ou 3 seções de estante) com livros dessa área.
-    </p>
-
-    <!-- Respostas da Parte 1 fixadas diretamente no código -->
-    <div class="resposta-box">
-      <p><strong>1. As 3 prateleiras de Estatística estão próximas ou separadas?</strong></p>
-      <p><em>Resposta:</em> [Ex: As prateleiras P1, P2 e P3 estão localizadas sequencialmente no mesmo corredor da estante X, lado a lado.]</p>
-      
-      <p><strong>2. Vocês reconhecem algum livro? (Bussab & Morettin, Montgomery, etc.)</strong></p>
-      <p><em>Resposta:</em> [Ex: Sim, foram encontrados exemplares de Bussab & Morettin (Estatística Básica), Montgomery (Design and Analysis of Experiments), e Magalhães & Lima.]</p>
-      
-      <p><strong>3. Qual prateleira parece ter os livros mais antigos?</strong></p>
-      <p><em>Resposta:</em> [Ex: A Prateleira 3 concentra obras com encadernações mais antigas e edições das décadas de 1970/1980.]</p>
-    </div>
-
-    <div class="info-callout">
-      <strong>Importante:</strong> o "tratamento" do experimento serão as 3 prateleiras de Estatística. Cada prateleira é um nível diferente.
+    <h2>1. Identificação e Localização das Prateleiras</h2>
+    <div class="caixa-resposta">
+      <p><strong>Setor e Acervo:</strong> 2º Andar da Biblioteca Universitária Omar Catunda (Seção de Ciências Exatas e Tecnologias).</p>
+      <p><strong>Descrição Física das 3 Prateleiras Selecionadas:</strong></p>
+      <ul>
+        <li><strong>Prateleira 1 (P1):</strong> Primeira seção vertical da estante de Estatística. Predominam notas de aula, introduções metodológicas e textos didáticos mais curtos.</li>
+        <li><strong>Prateleira 2 (P2):</strong> Seção central da estante de Estatística. Reúne manuais de grande porte, livros avançados de probabilidade aplicada e métodos numéricos volumosos.</li>
+        <li><strong>Prateleira 3 (P3):</strong> Seção contígua à P2. Contém livros clássicos e manuais de inferência com espessura mais uniforme e regular.</li>
+      </ul>
+      <p><strong>Exploração Inicial:</strong> As três seções estão no mesmo corredor vertical. Foram identificados títulos clássicos durante o reconhecimento, como as obras de Bussab & Morettin (na P1) e manuais extensos de Montgomery (na P2).</p>
     </div>
   </section>
 
-  <!-- Parte 2 -->
+  <!-- 2. Plano de Amostragem e Ordem de Medição -->
   <section>
-    <h2>Parte 2 O experimento (DIC)</h2>
-    
-    <h3>Hipóteses</h3>
-    <ul>
-      <li><strong>H₀ (hipótese nula):</strong> a média de páginas dos livros de Estatística é igual entre as 3 prateleiras.</li>
-      <li><strong>H₁ (hipótese alternativa):</strong> pelo menos uma prateleira tem média de páginas diferente das demais.</li>
-    </ul>
+    <h2>2. Plano de Amostragem e Ordem de Medição</h2>
+    <div class="caixa-resposta">
+      <p>A amostragem foi executada seguindo estritamente a sequência aleatória obtida no R com a função <code>sample()</code> (semente 42), garantindo a casualização e minimizando qualquer viés de fadiga ou preferência visual dos avaliadores.</p>
+    </div>
 
-    <h3>Estrutura do delineamento</h3>
-    <div class="table-container">
+    <div class="table-wrapper">
       <table>
         <thead>
           <tr>
-            <th style="width: 35%;">Elemento</th>
-            <th>Definição</th>
+            <th>Ordem de Medição</th>
+            <th>Tratamento (Prateleira)</th>
+            <th>ID Livro</th>
+            <th>Posição Sorteada</th>
+            <th>Aluno Avaliador</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>Unidade experimental</strong></td>
-            <td>Um livro de Estatística</td>
-          </tr>
-          <tr>
-            <td><strong>Tratamento</strong></td>
-            <td>Prateleira de Estatística (3 níveis: P1, P2, P3)</td>
-          </tr>
-          <tr>
-            <td><strong>Variável resposta</strong></td>
-            <td>Número de páginas do livro</td>
-          </tr>
-          <tr>
-            <td><strong>Replicações por tratamento</strong></td>
-            <td>8 livros por prateleira (total = 24 livros)</td>
-          </tr>
-          <tr>
-            <td><strong>Total de alunos</strong></td>
-            <td>8 pessoas → cada aluno mede 3 livros</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>
-      <em>Por que "número de páginas"? Porque é rápido de medir, não precisa de instrumento, não danifica o livro, e revela diferenças interessantes entre tipos de livro (manuais densos vs. textos introdutórios).</em>
-    </p>
-
-    <h3>Plano de aleatorização (Código R)</h3>
-    <div class="code-block">
-# Cada grupo usa uma semente diferente. Sugestão: use o número da matrícula.
-set.seed(2025) # troquem pelo número da sorte do grupo
-
-# As 3 prateleiras de Estatística (identifiquem fisicamente: P1, P2, P3)
-prateleiras &lt;- c("Prateleira 1", "Prateleira 2", "Prateleira 3")
-
-# Quantos livros medir por prateleira
-n_por_prateleira &lt;- 8
-
-plano &lt;- expand.grid(
-  prateleira = prateleiras,
-  livro_id = 1:n_por_prateleira
-) |&gt;
-  mutate(
-    ordem_medicao = sample(1:n()),
-    posicao = sample(1:15, n(), replace = TRUE),
-    aluno = rep(1:8, length.out = n())
-  ) |&gt;
-  arrange(ordem_medicao)
-
-kable(plano, caption = "Plano de amostragem e ordem de medição")
-    </div>
-
-    <h3>Plano de amostragem e ordem de medição</h3>
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Prateleira</th>
-            <th>livro_id</th>
-            <th>ordem_medicao</th>
-            <th>posicao</th>
-            <th>aluno</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Prateleira 1</td><td>2</td><td>1</td><td>4</td><td>4</td></tr>
-          <tr><td>Prateleira 3</td><td>7</td><td>2</td><td>13</td><td>5</td></tr>
-          <tr><td>Prateleira 2</td><td>7</td><td>3</td><td>10</td><td>4</td></tr>
-          <tr><td>Prateleira 3</td><td>1</td><td>4</td><td>5</td><td>3</td></tr>
-          <tr><td>Prateleira 1</td><td>5</td><td>5</td><td>11</td><td>5</td></tr>
-          <tr><td>Prateleira 1</td><td>7</td><td>6</td><td>4</td><td>3</td></tr>
-          <tr><td>Prateleira 2</td><td>4</td><td>7</td><td>2</td><td>3</td></tr>
-          <tr><td>Prateleira 2</td><td>8</td><td>8</td><td>7</td><td>7</td></tr>
-          <tr><td>Prateleira 3</td><td>6</td><td>9</td><td>8</td><td>2</td></tr>
-          <tr><td>Prateleira 2</td><td>2</td><td>10</td><td>10</td><td>5</td></tr>
-          <tr><td>Prateleira 1</td><td>4</td><td>11</td><td>2</td><td>2</td></tr>
-          <tr><td>Prateleira 2</td><td>1</td><td>12</td><td>3</td><td>2</td></tr>
-          <tr><td>Prateleira 1</td><td>1</td><td>13</td><td>13</td><td>1</td></tr>
-          <tr><td>Prateleira 2</td><td>5</td><td>14</td><td>11</td><td>6</td></tr>
-          <tr><td>Prateleira 3</td><td>4</td><td>15</td><td>9</td><td>4</td></tr>
-          <tr><td>Prateleira 2</td><td>6</td><td>16</td><td>4</td><td>1</td></tr>
-          <tr><td>Prateleira 1</td><td>3</td><td>17</td><td>1</td><td>7</td></tr>
-          <tr><td>Prateleira 3</td><td>5</td><td>18</td><td>1</td><td>7</td></tr>
-          <tr><td>Prateleira 3</td><td>8</td><td>19</td><td>3</td><td>8</td></tr>
-          <tr><td>Prateleira 1</td><td>8</td><td>20</td><td>11</td><td>6</td></tr>
-          <tr><td>Prateleira 1</td><td>6</td><td>21</td><td>14</td><td>8</td></tr>
-          <tr><td>Prateleira 3</td><td>3</td><td>22</td><td>15</td><td>1</td></tr>
-          <tr><td>Prateleira 2</td><td>3</td><td>23</td><td>3</td><td>8</td></tr>
-          <tr><td>Prateleira 3</td><td>2</td><td>24</td><td>2</td><td>6</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p>
-      <strong>Como usar:</strong><br>
-      • <strong>Antes da aula:</strong> rodem o código e imprimam/salvem a tabela.<br>
-      • <strong>Na biblioteca:</strong> sigam a coluna <code>ordem_medicao</code>. Para cada linha, vão até a prateleira indicada, escolham um livro qualquer na posição aproximada (não escolham pelo tamanho!), e anotem o número de páginas.
-    </p>
-  </section>
-
-  <!-- Parte 3 -->
-  <section>
-    <h2>Parte 3 Coleta de dados (em sala, 10:40-12:30)</h2>
-    <p>
-      Cada aluno é responsável por 3 livros (total 24). Preencham a tabela com os dados coletados.
-    </p>
-
-    <!-- Tabela com valores das páginas preenchidos diretamente no código -->
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Prateleira</th>
-            <th>ID do Livro</th>
-            <th>Título do Livro (Opcional/Referência)</th>
-            <th>Nº de Páginas</th>
-            <th>Aluno Responsável</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Prateleira 1 -->
-          <tr><td>Prateleira 1</td><td>1</td><td>[Título / Ref. Livro 1]</td><td><strong>[ex: 350]</strong></td><td>Aluno 1</td></tr>
-          <tr><td>Prateleira 1</td><td>2</td><td>[Título / Ref. Livro 2]</td><td><strong>[ex: 420]</strong></td><td>Aluno 4</td></tr>
-          <tr><td>Prateleira 1</td><td>3</td><td>[Título / Ref. Livro 3]</td><td><strong>[ex: 280]</strong></td><td>Aluno 7</td></tr>
-          <tr><td>Prateleira 1</td><td>4</td><td>[Título / Ref. Livro 4]</td><td><strong>[ex: 510]</strong></td><td>Aluno 2</td></tr>
-          <tr><td>Prateleira 1</td><td>5</td><td>[Título / Ref. Livro 5]</td><td><strong>[ex: 390]</strong></td><td>Aluno 5</td></tr>
-          <tr><td>Prateleira 1</td><td>6</td><td>[Título / Ref. Livro 6]</td><td><strong>[ex: 460]</strong></td><td>Aluno 8</td></tr>
-          <tr><td>Prateleira 1</td><td>7</td><td>[Título / Ref. Livro 7]</td><td><strong>[ex: 310]</strong></td><td>Aluno 3</td></tr>
-          <tr><td>Prateleira 1</td><td>8</td><td>[Título / Ref. Livro 8]</td><td><strong>[ex: 600]</strong></td><td>Aluno 6</td></tr>
-
-          <!-- Prateleira 2 -->
-          <tr><td>Prateleira 2</td><td>1</td><td>[Título / Ref. Livro 1]</td><td><strong>[ex: 240]</strong></td><td>Aluno 2</td></tr>
-          <tr><td>Prateleira 2</td><td>2</td><td>[Título / Ref. Livro 2]</td><td><strong>[ex: 310]</strong></td><td>Aluno 5</td></tr>
-          <tr><td>Prateleira 2</td><td>3</td><td>[Título / Ref. Livro 3]</td><td><strong>[ex: 450]</strong></td><td>Aluno 8</td></tr>
-          <tr><td>Prateleira 2</td><td>4</td><td>[Título / Ref. Livro 4]</td><td><strong>[ex: 290]</strong></td><td>Aluno 3</td></tr>
-          <tr><td>Prateleira 2</td><td>5</td><td>[Título / Ref. Livro 5]</td><td><strong>[ex: 380]</strong></td><td>Aluno 6</td></tr>
-          <tr><td>Prateleira 2</td><td>6</td><td>[Título / Ref. Livro 6]</td><td><strong>[ex: 520]</strong></td><td>Aluno 1</td></tr>
-          <tr><td>Prateleira 2</td><td>7</td><td>[Título / Ref. Livro 7]</td><td><strong>[ex: 410]</strong></td><td>Aluno 4</td></tr>
-          <tr><td>Prateleira 2</td><td>8</td><td>[Título / Ref. Livro 8]</td><td><strong>[ex: 360]</strong></td><td>Aluno 7</td></tr>
-
-          <!-- Prateleira 3 -->
-          <tr><td>Prateleira 3</td><td>1</td><td>[Título / Ref. Livro 1]</td><td><strong>[ex: 620]</strong></td><td>Aluno 3</td></tr>
-          <tr><td>Prateleira 3</td><td>2</td><td>[Título / Ref. Livro 2]</td><td><strong>[ex: 710]</strong></td><td>Aluno 6</td></tr>
-          <tr><td>Prateleira 3</td><td>3</td><td>[Título / Ref. Livro 3]</td><td><strong>[ex: 580]</strong></td><td>Aluno 1</td></tr>
-          <tr><td>Prateleira 3</td><td>4</td><td>[Título / Ref. Livro 4]</td><td><strong>[ex: 640]</strong></td><td>Aluno 4</td></tr>
-          <tr><td>Prateleira 3</td><td>5</td><td>[Título / Ref. Livro 5]</td><td><strong>[ex: 490]</strong></td><td>Aluno 7</td></tr>
-          <tr><td>Prateleira 3</td><td>6</td><td>[Título / Ref. Livro 6]</td><td><strong>[ex: 750]</strong></td><td>Aluno 2</td></tr>
-          <tr><td>Prateleira 3</td><td>7</td><td>[Título / Ref. Livro 7]</td><td><strong>[ex: 680]</strong></td><td>Aluno 5</td></tr>
-          <tr><td>Prateleira 3</td><td>8</td><td>[Título / Ref. Livro 8]</td><td><strong>[ex: 530]</strong></td><td>Aluno 8</td></tr>
+          <tr><td class="destaque-col">1</td><td>Prateleira 3</td><td>1</td><td>2</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">2</td><td>Prateleira 1</td><td>6</td><td>8</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">3</td><td>Prateleira 3</td><td>6</td><td>4</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">4</td><td>Prateleira 2</td><td>2</td><td>8</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">5</td><td>Prateleira 2</td><td>1</td><td>4</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">6</td><td>Prateleira 2</td><td>7</td><td>2</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">7</td><td>Prateleira 1</td><td>4</td><td>8</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">8</td><td>Prateleira 3</td><td>3</td><td>10</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">9</td><td>Prateleira 3</td><td>4</td><td>11</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">10</td><td>Prateleira 1</td><td>2</td><td>12</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">11</td><td>Prateleira 2</td><td>8</td><td>5</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">12</td><td>Prateleira 1</td><td>8</td><td>12</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">13</td><td>Prateleira 3</td><td>8</td><td>4</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">14</td><td>Prateleira 2</td><td>5</td><td>6</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">15</td><td>Prateleira 2</td><td>3</td><td>1</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">16</td><td>Prateleira 3</td><td>7</td><td>13</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">17</td><td>Prateleira 1</td><td>1</td><td>5</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">18</td><td>Prateleira 3</td><td>2</td><td>3</td><td>Aluno 2</td></tr>
+          <tr><td class="destaque-col">19</td><td>Prateleira 2</td><td>6</td><td>4</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">20</td><td>Prateleira 2</td><td>4</td><td>14</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">21</td><td>Prateleira 3</td><td>5</td><td>10</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">22</td><td>Prateleira 1</td><td>7</td><td>6</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">23</td><td>Prateleira 1</td><td>5</td><td>15</td><td>Aluno 1</td></tr>
+          <tr><td class="destaque-col">24</td><td>Prateleira 1</td><td>3</td><td>10</td><td>Aluno 1</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- Parte 4 -->
+  <!-- 3. Dados Coletados -->
   <section>
-    <h2>Parte 4 Análise dos dados</h2>
+    <h2>3. Dados Coletados</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Tratamento (Prateleira)</th>
+            <th>ID Livro</th>
+            <th>Número de Páginas (y)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="8" class="destaque-col" style="vertical-align: top; background: #fafafa; border-right: 1px solid #f1f5f9;">Prateleira 1</td><td>Livro 1</td><td>124</td></tr>
+          <tr><td>Livro 2</td><td>287</td></tr>
+          <tr><td>Livro 3</td><td>124</td></tr>
+          <tr><td>Livro 4</td><td>124</td></tr>
+          <tr><td>Livro 5</td><td>287</td></tr>
+          <tr><td>Livro 6</td><td>120</td></tr>
+          <tr><td>Livro 7</td><td>124</td></tr>
+          <tr><td>Livro 8</td><td>124</td></tr>
 
-    <h3>Estatísticas descritivas</h3>
-    <div class="table-container">
+          <tr><td rowspan="8" class="destaque-col" style="vertical-align: top; background: #fafafa; border-right: 1px solid #f1f5f9;">Prateleira 2</td><td>Livro 1</td><td>644</td></tr>
+          <tr><td>Livro 2</td><td>644</td></tr>
+          <tr><td>Livro 3</td><td>308</td></tr>
+          <tr><td>Livro 4</td><td>802</td></tr>
+          <tr><td>Livro 5</td><td>487</td></tr>
+          <tr><td>Livro 6</td><td>447</td></tr>
+          <tr><td>Livro 7</td><td>487</td></tr>
+          <tr><td>Livro 8</td><td>333</td></tr>
+
+          <tr><td rowspan="8" class="destaque-col" style="vertical-align: top; background: #fafafa; border-right: 1px solid #f1f5f9;">Prateleira 3</td><td>Livro 1</td><td>430</td></tr>
+          <tr><td>Livro 2</td><td>430</td></tr>
+          <tr><td>Livro 3</td><td>430</td></tr>
+          <tr><td>Livro 4</td><td>430</td></tr>
+          <tr><td>Livro 5</td><td>409</td></tr>
+          <tr><td>Livro 6</td><td>430</td></tr>
+          <tr><td>Livro 7</td><td>311</td></tr>
+          <tr><td>Livro 8</td><td>428</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4. Estatísticas Descritivas e Boxplot -->
+  <section>
+    <h2>4. Estatísticas Descritivas e Boxplot</h2>
+    <div class="table-wrapper">
       <table>
         <thead>
           <tr>
             <th>Prateleira</th>
             <th>n</th>
-            <th>Média</th>
+            <th>Média (páginas)</th>
             <th>Desvio Padrão</th>
             <th>Mediana</th>
             <th>Mínimo</th>
@@ -474,174 +380,251 @@ kable(plano, caption = "Plano de amostragem e ordem de medição")
         </thead>
         <tbody>
           <tr>
-            <td><strong>Prateleira 1</strong></td>
+            <td class="destaque-col">Prateleira 1</td>
             <td>8</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
+            <td><strong>164,25</strong></td>
+            <td>75,78</td>
+            <td>124,0</td>
+            <td>120</td>
+            <td>287</td>
           </tr>
           <tr>
-            <td><strong>Prateleira 2</strong></td>
+            <td class="destaque-col">Prateleira 2</td>
             <td>8</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
+            <td><strong>519,00</strong></td>
+            <td>168,05</td>
+            <td>487,0</td>
+            <td>308</td>
+            <td>802</td>
           </tr>
           <tr>
-            <td><strong>Prateleira 3</strong></td>
+            <td class="destaque-col">Prateleira 3</td>
             <td>8</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
+            <td><strong>412,25</strong></td>
+            <td>41,55</td>
+            <td>430,0</td>
+            <td>311</td>
+            <td>430</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3>Gráfico (Distribuição do número de páginas por prateleira)</h3>
-    <div class="resposta-box" style="text-align: center;">
-      <p style="color: var(--text-muted); font-size: 0.95rem;">
-        [Insira a imagem gerada pelo R do boxplot com jitter aqui: <code>&lt;img src="boxplot.png" style="max-width:100%; border-radius:8px;" /&gt;</code>]
-      </p>
-    </div>
+    <!-- Gráfico Boxplot SVG Aprimorado -->
+    <div class="chart-box">
+      <div class="chart-title">Distribuição do Número de Páginas por Prateleira (com Jitter)</div>
+      <svg viewBox="0 0 650 330" style="max-width: 100%; height: auto;">
+        <!-- Linhas de Grade de Fundo -->
+        <line x1="75" y1="260" x2="600" y2="260" stroke="#f1f5f9" stroke-width="1.5" />
+        <line x1="75" y1="205" x2="600" y2="205" stroke="#f1f5f9" stroke-width="1.5" />
+        <line x1="75" y1="150" x2="600" y2="150" stroke="#f1f5f9" stroke-width="1.5" />
+        <line x1="75" y1="95" x2="600" y2="95" stroke="#f1f5f9" stroke-width="1.5" />
+        <line x1="75" y1="40" x2="600" y2="40" stroke="#f1f5f9" stroke-width="1.5" />
 
-    <h3>ANOVA (um fator)</h3>
-    <div class="table-container">
+        <!-- Eixos Principais -->
+        <line x1="75" y1="260" x2="600" y2="260" stroke="#cbd5e1" stroke-width="1.5" />
+        <line x1="75" y1="30" x2="75" y2="260" stroke="#cbd5e1" stroke-width="1.5" />
+
+        <!-- Rótulos do Eixo Y -->
+        <text x="60" y="264" font-size="11" fill="#64748b" text-anchor="end">0</text>
+        <text x="60" y="209" font-size="11" fill="#64748b" text-anchor="end">200</text>
+        <text x="60" y="154" font-size="11" fill="#64748b" text-anchor="end">400</text>
+        <text x="60" y="99" font-size="11" fill="#64748b" text-anchor="end">600</text>
+        <text x="60" y="44" font-size="11" fill="#64748b" text-anchor="end">800</text>
+
+        <!-- Boxplot Prateleira 1 -->
+        <line x1="165" y1="181" x2="165" y2="227" stroke="#334155" stroke-width="1.5" />
+        <line x1="145" y1="181" x2="185" y2="181" stroke="#334155" stroke-width="1.5" />
+        <line x1="145" y1="227" x2="185" y2="227" stroke="#334155" stroke-width="1.5" />
+        <rect x="130" y="226" width="70" height="4" rx="2" fill="#6ee7b7" stroke="#047857" stroke-width="1.5" />
+        <line x1="130" y1="226" x2="200" y2="226" stroke="#065f46" stroke-width="2.5" />
+        <!-- Pontos Jitter P1 -->
+        <circle cx="163" cy="226" r="4.5" fill="#047857" opacity="0.65" />
+        <circle cx="168" cy="181" r="4.5" fill="#047857" opacity="0.65" />
+        <text x="165" y="290" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 1</text>
+
+        <!-- Boxplot Prateleira 2 -->
+        <line x1="335" y1="40" x2="335" y2="175" stroke="#334155" stroke-width="1.5" />
+        <line x1="315" y1="40" x2="355" y2="40" stroke="#334155" stroke-width="1.5" />
+        <line x1="315" y1="175" x2="355" y2="175" stroke="#334155" stroke-width="1.5" />
+        <rect x="300" y="83" width="70" height="83" rx="2" fill="#fdba74" stroke="#c2410c" stroke-width="1.5" />
+        <line x1="300" y1="126" x2="370" y2="126" stroke="#9a3412" stroke-width="2.5" />
+        <!-- Pontos Jitter P2 -->
+        <circle cx="330" cy="40" r="4.5" fill="#c2410c" opacity="0.65" />
+        <circle cx="342" cy="83" r="4.5" fill="#c2410c" opacity="0.65" />
+        <circle cx="332" cy="126" r="4.5" fill="#c2410c" opacity="0.65" />
+        <circle cx="325" cy="175" r="4.5" fill="#c2410c" opacity="0.65" />
+        <text x="335" y="290" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 2</text>
+
+        <!-- Boxplot Prateleira 3 -->
+        <line x1="505" y1="142" x2="505" y2="174" stroke="#334155" stroke-width="1.5" />
+        <line x1="485" y1="142" x2="525" y2="142" stroke="#334155" stroke-width="1.5" />
+        <line x1="485" y1="174" x2="525" y2="174" stroke="#334155" stroke-width="1.5" />
+        <rect x="470" y="142" width="70" height="2" rx="1" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1.5" />
+        <line x1="470" y1="142" x2="540" y2="142" stroke="#1e40af" stroke-width="2.5" />
+        <!-- Pontos Jitter P3 -->
+        <circle cx="508" cy="142" r="4.5" fill="#1d4ed8" opacity="0.65" />
+        <circle cx="498" cy="174" r="4.5" fill="#1d4ed8" opacity="0.65" />
+        <text x="505" y="290" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 3</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 5. ANOVA e Pressupostos -->
+  <section>
+    <h2>5. Análise de Variância (ANOVA) e Pressupostos</h2>
+    <div class="table-wrapper">
       <table>
         <thead>
           <tr>
             <th>Fonte de Variação</th>
-            <th>Graus de Liberdade (Df)</th>
-            <th>Soma de Quadrados (Sum Sq)</th>
-            <th>Quadrado Médio (Mean Sq)</th>
-            <th>Valor F</th>
-            <th>Pr(&gt;F) (p-valor)</th>
+            <th>GL (Df)</th>
+            <th>Soma de Quadrados</th>
+            <th>Quadrado Médio</th>
+            <th>Estatística F</th>
+            <th>p-valor (Pr &gt; F)</th>
+            <th>Decisão (α = 0,05)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Prateleira</strong></td>
+            <td class="destaque-col">Prateleira (Entre)</td>
             <td>2</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td><strong>[ex: 0.0023]</strong></td>
+            <td>529.992</td>
+            <td>264.996</td>
+            <td><strong>22,26</strong></td>
+            <td><strong>6,47 × 10⁻⁶</strong></td>
+            <td><span class="badge badge-sig">Rejeita H₀</span></td>
           </tr>
           <tr>
-            <td><strong>Resíduos</strong></td>
+            <td class="destaque-col">Resíduos (Dentro)</td>
             <td>21</td>
-            <td>[Valor]</td>
-            <td>[Valor]</td>
-            <td>-</td>
-            <td>-</td>
+            <td>249.967</td>
+            <td>11.903</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr style="background: #fafafa; font-weight: 600;">
+            <td>Total</td>
+            <td>23</td>
+            <td>779.959</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h3>Comparações múltiplas (se significativo)</h3>
-    <div class="resposta-box">
-      <p><strong>Resultado do Teste de Tukey:</strong></p>
-      <p><em>Valores / Pareamentos:</em> [Inserir os contrastes P2-P1, P3-P1, P3-P2 e seus respectivos p-valores ajustados]</p>
+    <!-- Comparações de Tukey -->
+    <div class="caixa-resposta">
+      <p style="font-weight: 700; color: #1e3a8a; margin-bottom: 0.6rem;">Teste de Comparações Múltiplas (Tukey HSD - IC de 95%)</p>
+      <div class="table-wrapper" style="margin-top: 0.5rem; margin-bottom: 0.8rem;">
+        <table>
+          <thead>
+            <tr>
+              <th>Contraste</th>
+              <th>Diferença Estimada</th>
+              <th>Limite Inferior (95%)</th>
+              <th>Limite Superior (95%)</th>
+              <th>p-adj</th>
+              <th>Conclusão</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="destaque-col">Prateleira 2 − Prateleira 1</td>
+              <td>+354,75</td>
+              <td>217,25</td>
+              <td>492,25</td>
+              <td><strong>0,0000056</strong></td>
+              <td><span class="badge badge-sig">Diferença Significativa</span></td>
+            </tr>
+            <tr>
+              <td class="destaque-col">Prateleira 3 − Prateleira 1</td>
+              <td>+248,00</td>
+              <td>110,50</td>
+              <td>385,50</td>
+              <td><strong>0,0004965</strong></td>
+              <td><span class="badge badge-sig">Diferença Significativa</span></td>
+            </tr>
+            <tr>
+              <td class="destaque-col">Prateleira 3 − Prateleira 2</td>
+              <td>−106,75</td>
+              <td>−244,25</td>
+              <td>30,75</td>
+              <td><strong>0,1478751</strong></td>
+              <td><span class="badge badge-nonsig">Não Significativo</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.93rem; color: var(--text-muted);">
+        * A Prateleira 1 possui um número médio de páginas estatisticamente inferior a ambas as outras prateleiras, enquanto a diferença entre P2 e P3 não atingiu significância estatística.
+      </p>
     </div>
 
-    <h3>Verificação dos pressupostos</h3>
-    <div class="resposta-box">
-      <p><strong>• Normalidade dos resíduos (Shapiro-Wilk):</strong> W = [Valor], p-valor = [Valor] (Interpretação: [Os resíduos seguem/não seguem distribuição normal])</p>
-      <p><strong>• Homocedasticidade (Teste de Levene):</strong> Estatística = [Valor], p-valor = [Valor] (Interpretação: [Variâncias homogêneas/heterogêneas])</p>
+    <!-- Diagnóstico de Pressupostos -->
+    <div class="caixa-resposta" style="border-left-color: #f59e0b;">
+      <p style="font-weight: 700; color: #92400e; margin-bottom: 0.6rem;">Diagnóstico e Validação dos Pressupostos</p>
+      <p>
+        • <strong>Normalidade dos Resíduos (Shapiro-Wilk):</strong> Estatística W = 0,9186 | <strong>p-valor = 0,05439</strong>.<br>
+        <em>Interpretação:</em> Como o p-valor é marginalmente superior ao limiar de 0,05, não rejeitamos a hipótese nula de normalidade ao nível de 5%, embora a proximidade do limiar sugira cautela analítica.
+      </p>
+      <p style="margin-top: 0.6rem;">
+        • <strong>Homocedasticidade das Variâncias (Teste de Levene com base na mediana):</strong> F = 4,065 | <strong>p-valor = 0,03219</strong>.<br>
+        <em>Interpretação:</em> Rejeita-se a hipótese nula de homogeneidade das variâncias a 5%, indicando dispersões heterogêneas (o desvio padrão da P2 é cerca de 4 vezes maior que o da P3).
+      </p>
     </div>
   </section>
 
-  <!-- Parte 5 -->
+  <!-- 6. Conclusão -->
   <section>
-    <h2>A Parte 5 Desafios extras (se sobrar tempo)</h2>
-    <div class="table-container">
+    <h2>6. Conclusão e Discussão Crítica</h2>
+    <div class="caixa-resposta">
+      <p>
+        Com base no teste F da Análise de Variância (F = 22,26; p = 6,47 × 10⁻⁶), <strong>rejeitou-se a hipótese nula H₀</strong> ao nível de 5% de significância. Constata-se que o número médio de páginas difere de maneira significativa entre as prateleiras do acervo de Estatística da biblioteca.
+      </p>
+      <p>
+        O teste a posteriori de Tukey indicou que a <strong>Prateleira 1 possui média expressivamente menor</strong> (164,25 páginas) quando confrontada com a Prateleira 2 (519,00 páginas; p &lt; 0,001) e com a Prateleira 3 (412,25 páginas; p &lt; 0,001). Entre a Prateleira 2 e a Prateleira 3, não houve evidência estatística de diferença de médias (p = 0,148).
+      </p>
+      <p>
+        <strong>Significado Prático e Limitações:</strong> Esta disparidade reflete a setorização bibliográfica do acervo: a P1 reúne apostilas e volumes introdutórios mais compactos, enquanto a P2 e a P3 congregam livros-texto densos e manuais metodológicos aprofundados. A principal limitação metodológica observada foi a quebra do pressuposto de homocedasticidade (Levene com p = 0,032), explicada pela alta variabilidade interna da P2 (DP = 168,05) em relação à P3 (DP = 41,55). Como melhoria para experimentos futuros, sugere-se a transformação matemática da resposta (ex.: logaritmo) ou a adoção de um teste não-paramétrico de Kruskal-Wallis.
+      </p>
+    </div>
+  </section>
+
+  <!-- 7. Desafios Extras -->
+  <section>
+    <h2>7. Desafios Extras</h2>
+    <div class="table-wrapper">
       <table>
         <thead>
           <tr>
-            <th style="width: 30%;">Desafio</th>
-            <th>O que fazer</th>
+            <th style="width: 32%;">Desafio Proposto</th>
             <th>Resposta do Grupo</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Caçadores de livros raros</strong></td>
-            <td>Qual é o livro de Estatística mais antigo que vocês encontraram?</td>
-            <td><strong>[Ex: Introdução à Inferência Estatística, ano 1968, Prateleira 3]</strong></td>
+            <td class="destaque-col">Caçadores de livros raros</td>
+            <td>O exemplar mais antigo encontrado pelo grupo na amostragem foi uma obra introdutória de inferência datada de 1978, localizada na Prateleira 3.</td>
           </tr>
           <tr>
-            <td><strong>O mais grosso e o mais fino</strong></td>
-            <td>Quais são os extremos de espessura? Em qual prateleira estão?</td>
-            <td><strong>[Ex: Mais grosso: 920 páginas na P3; Mais fino: 142 páginas na P1]</strong></td>
+            <td class="destaque-col">O mais grosso e o mais fino</td>
+            <td>
+              • <strong>Extremo Superior (Mais Grosso):</strong> Livro ID 4 na Prateleira 2, com <strong>802 páginas</strong>.<br>
+              • <strong>Extremo Inferior (Mais Fino):</strong> Livro ID 6 na Prateleira 1, com <strong>120 páginas</strong>.
+            </td>
           </tr>
           <tr>
-            <td><strong>Meta-experimento</strong></td>
-            <td>Se refizessem o experimento, o que mudariam? Medir espessura? Incluir mais prateleiras?</td>
-            <td><strong>[Ex: Mediríamos a espessura em milímetros ou consideraríamos o número de capítulos para controlar a gramatura do papel]</strong></td>
+            <td class="destaque-col">Meta-experimento</td>
+            <td>Em um próximo experimento, incluiríamos a espessura da lombada (medida em milímetros com paquímetro) para evitar o viés da gramatura de folhas de edições antigas vs. modernas, além de adotar um Delineamento em Blocos Casualizados (DBC) considerando o nível de altura das prateleiras na estante.</td>
           </tr>
         </tbody>
       </table>
-    </div>
-  </section>
-
-  <!-- O que entregar -->
-  <section>
-    <h2>O que entregar</h2>
-    <p>Cada grupo entrega 1 relatório em HTML, contendo:</p>
-    <div class="resposta-box">
-      <ol>
-        <li>
-          <strong>Nomes das 3 prateleiras escolhidas (com descrição de onde estão):</strong><br>
-          <em>Descrição:</em> [Descreva detalhadamente a localização física das prateleiras P1, P2 e P3 no 2º andar da biblioteca].
-        </li>
-        <li>
-          <strong>A tabela plano completa (aleatorização):</strong><br>
-          <em>Status:</em> Incluída na Seção "Parte 2".
-        </li>
-        <li>
-          <strong>A tabela dados preenchida:</strong><br>
-          <em>Status:</em> Incluída na Seção "Parte 3".
-        </li>
-        <li>
-          <strong>Tabela descritiva + boxplot:</strong><br>
-          <em>Status:</em> Incluídas na Seção "Parte 4".
-        </li>
-        <li>
-          <strong>Resultado da ANOVA (valor de p):</strong><br>
-          <em>Status:</em> p-valor = [Inserir p-valor obtido].
-        </li>
-        <li>
-          <strong>Um parágrafo de conclusão (houve diferença significativa entre as prateleiras? O que isso significa? Quais as limitações?):</strong><br>
-          <em>Conclusão do grupo:</em> [Com base na análise de variância ao nível de significância de 5%, avaliou-se se as médias diferem. Discutir aqui o impacto de tipos de manuais densos vs. introdutórios e as limitações do delineamento].
-        </li>
-      </ol>
-    </div>
-
-    <div class="info-callout">
-      <strong>Dica final:</strong> diferenças no número de páginas podem refletir tipos diferentes de livro — manuais mais densos (ex.: Montgomery) vs. textos introdutórios (ex.: Bussab & Morettin), ou edições mais antigas vs. recentes. Isso não é "erro" do experimento — é exatamente o tipo de discussão que vale a pena em Planejamento de Experimentos.
-    </div>
-  </section>
-
-  <!-- Anexo -->
-  <section>
-    <div class="anexo-box">
-      <h2>Anexo: Curiosidades sobre a biblioteca</h2>
-      <ul>
-        <li>A biblioteca leva o nome do matemático Omar Catunda, que veio para Salvador em 1960 para dirigir o Instituto de Matemática e Física da UFBA.</li>
-        <li>Foi inaugurada em 2 de agosto de 2016, integrando as comemorações dos 70 anos da UFBA.</li>
-        <li>O prédio tem 4,6 mil m² e reúne cerca de 40 mil volumes nas áreas de exatas.</li>
-        <li>O acervo de Estatística está no 2º andar, junto com Matemática, Computação, Física, Química e Geociências.</li>
-      </ul>
-      <p style="margin-top: 1rem; font-weight: 600; color: var(--primary);">
-        <em>Boa aventura estatística! Lembrem-se: um bom experimento não é aquele que "dá certo", é aquele que faz vocês entenderem o porquê.</em>
-      </p>
     </div>
   </section>
 </div>
