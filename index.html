@@ -188,17 +188,18 @@
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 16px;
-      padding: 2rem;
+      padding: 1.2rem;
       margin: 1.8rem 0;
       text-align: center;
       box-shadow: var(--shadow-sm);
     }
 
-    .chart-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #1e293b;
-      margin-bottom: 1.5rem;
+    .chart-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -393,118 +394,9 @@
       </table>
     </div>
 
-    <!-- Gráfico Boxplot SVG com o estilo translúcido e os pontos exatos da tabela -->
+    <!-- Imagem Oficial do Gráfico Exportada do R -->
     <div class="chart-box">
-      <div class="chart-title">Distribuição do Número de Páginas por Prateleira (com Jitter)</div>
-      <svg viewBox="0 0 760 380" style="max-width: 100%; height: auto; font-family: 'Plus Jakarta Sans', sans-serif;">
-        <!-- Grade Horizontal Suave -->
-        <!-- Mapeamento: y = 290 - (paginas / 850) * 260 -->
-        <line x1="85" y1="290" x2="690" y2="290" stroke="#f1f5f9" stroke-width="1.8" />
-        <line x1="85" y1="229" x2="690" y2="229" stroke="#f1f5f9" stroke-width="1.8" />
-        <line x1="85" y1="168" x2="690" y2="168" stroke="#f1f5f9" stroke-width="1.8" />
-        <line x1="85" y1="106" x2="690" y2="106" stroke="#f1f5f9" stroke-width="1.8" />
-        <line x1="85" y1="45" x2="690" y2="45" stroke="#f1f5f9" stroke-width="1.8" />
-
-        <!-- Eixo Y Vertical -->
-        <line x1="85" y1="40" x2="85" y2="290" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" />
-
-        <!-- Rótulos do Eixo Y -->
-        <text x="70" y="294" font-size="12" fill="#64748b" text-anchor="end">0</text>
-        <text x="70" y="233" font-size="12" fill="#64748b" text-anchor="end">200</text>
-        <text x="70" y="172" font-size="12" fill="#64748b" text-anchor="end">400</text>
-        <text x="70" y="110" font-size="12" fill="#64748b" text-anchor="end">600</text>
-        <text x="70" y="49" font-size="12" fill="#64748b" text-anchor="end">800</text>
-
-        <!-- ================= PRATELEIRA 1 (VERDE SUAVE) ================= -->
-        <!-- Bigode Superior (até 287) com T-Bar suave -->
-        <line x1="200" y1="239" x2="200" y2="202" stroke="#047857" stroke-width="2" stroke-linecap="round" />
-        <line x1="180" y1="202" x2="220" y2="202" stroke="#047857" stroke-width="2" stroke-linecap="round" />
-        <!-- Bigode Inferior (até 120) -->
-        <line x1="200" y1="252" x2="200" y2="253.3" stroke="#047857" stroke-width="2" stroke-linecap="round" />
-        <line x1="188" y1="253.3" x2="212" y2="253.3" stroke="#047857" stroke-width="2" stroke-linecap="round" />
-        <!-- Caixa com cantos arredondados e translúcida -->
-        <rect x="155" y="239" width="90" height="13" rx="4" fill="#6ee7b7" fill-opacity="0.7" stroke="#047857" stroke-width="2" />
-        <line x1="155" y1="252" x2="245" y2="252" stroke="#065f46" stroke-width="2.5" stroke-linecap="round" />
-
-        <!-- 8 Pontos Exatos (layer_data) da Prateleira 1 -->
-        <!-- 1: x = 0.9152, y = 123.50 -->
-        <circle cx="183.9" cy="252.2" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 2: x = 0.9280, y = 286.26 -->
-        <circle cx="186.3" cy="202.4" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 3: x = 0.9880, y = 123.22 -->
-        <circle cx="197.7" cy="252.3" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 4: x = 0.8923, y = 123.55 -->
-        <circle cx="179.5" cy="252.2" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 5: x = 1.1198, y = 287.03 -->
-        <circle cx="222.8" cy="202.2" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 6: x = 1.1446, y = 120.07 -->
-        <circle cx="227.5" cy="253.3" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 7: x = 0.8545, y = 124.16 -->
-        <circle cx="172.4" cy="252.0" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 8: x = 1.0245, y = 123.72 -->
-        <circle cx="204.7" cy="252.1" r="4" fill="#1e293b" opacity="0.8" />
-
-        <text x="200" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 1</text>
-
-        <!-- ================= PRATELEIRA 2 (LARANJA SUAVE) ================= -->
-        <!-- Bigode Superior (até 802) com T-Bar -->
-        <line x1="390" y1="93" x2="390" y2="44.7" stroke="#c2410c" stroke-width="2" stroke-linecap="round" />
-        <line x1="370" y1="44.7" x2="410" y2="44.7" stroke="#c2410c" stroke-width="2" stroke-linecap="round" />
-        <!-- Bigode Inferior (até 308) com T-Bar -->
-        <line x1="390" y1="184" x2="390" y2="195.6" stroke="#c2410c" stroke-width="2" stroke-linecap="round" />
-        <line x1="370" y1="195.6" x2="410" y2="195.6" stroke="#c2410c" stroke-width="2" stroke-linecap="round" />
-        <!-- Caixa com cantos arredondados e translúcida -->
-        <rect x="345" y="93" width="90" height="91" rx="6" fill="#fdba74" fill-opacity="0.8" stroke="#c2410c" stroke-width="2" />
-        <line x1="345" y1="141" x2="435" y2="141" stroke="#9a3412" stroke-width="3" stroke-linecap="round" />
-
-        <!-- 8 Pontos Exatos (layer_data) da Prateleira 2 -->
-        <!-- 9: x = 1.8581, y = 643.66 -->
-        <circle cx="363.0" cy="93.1" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 10: x = 2.0503, y = 644.79 -->
-        <circle cx="399.6" cy="92.7" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 11: x = 2.1213, y = 308.54 -->
-        <circle cx="413.0" cy="195.6" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 12: x = 1.8556, y = 802.18 (à esquerda da linha central) -->
-        <circle cx="362.6" cy="44.7" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 13: x = 1.9411, y = 486.45 -->
-        <circle cx="378.8" cy="141.2" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 14: x = 2.0786, y = 447.56 -->
-        <circle cx="404.9" cy="153.1" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 15: x = 2.1305, y = 486.48 -->
-        <circle cx="414.8" cy="141.2" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 16: x = 1.9856, y = 333.14 -->
-        <circle cx="387.3" cy="188.1" r="4" fill="#1e293b" opacity="0.8" />
-
-        <text x="390" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 2</text>
-
-        <!-- ================= PRATELEIRA 3 (AZUL SUAVE) ================= -->
-        <!-- Bigode Inferior (até 311) com T-Bar -->
-        <line x1="580" y1="161" x2="580" y2="194.8" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" />
-        <line x1="560" y1="194.8" x2="600" y2="194.8" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" />
-        <!-- Caixa com cantos arredondados e translúcida -->
-        <rect x="535" y="158" width="90" height="3" rx="1.5" fill="#93c5fd" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="2" />
-        <line x1="535" y1="158.4" x2="625" y2="158.4" stroke="#1e40af" stroke-width="3" stroke-linecap="round" />
-
-        <!-- 8 Pontos Exatos (layer_data) da Prateleira 3 -->
-        <!-- 17: x = 2.9299, y = 430.43 -->
-        <circle cx="566.7" cy="158.3" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 18: x = 2.9658, y = 430.15 -->
-        <circle cx="573.5" cy="158.4" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 19: x = 3.0492, y = 429.34 -->
-        <circle cx="589.4" cy="158.7" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 20: x = 2.9515, y = 429.21 -->
-        <circle cx="570.8" cy="158.7" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 21: x = 3.0995, y = 409.20 -->
-        <circle cx="598.9" cy="164.8" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 22: x = 2.9553, y = 430.76 -->
-        <circle cx="571.5" cy="158.2" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 23: x = 2.8877, y = 311.08 -->
-        <circle cx="558.7" cy="194.8" r="4" fill="#1e293b" opacity="0.8" />
-        <!-- 24: x = 2.8554, y = 427.56 -->
-        <circle cx="552.5" cy="159.2" r="4" fill="#1e293b" opacity="0.8" />
-
-        <text x="580" y="325" font-size="13" font-weight="600" fill="#334155" text-anchor="middle">Prateleira 3</text>
-      </svg>
+      <img src="boxplot.png" alt="Distribuição do número de páginas por prateleira" class="chart-img">
     </div>
   </section>
 
