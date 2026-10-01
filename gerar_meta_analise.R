@@ -91,7 +91,7 @@ nomes_estudos <- c(
   "Grupo 1 (G1)",
   "Grupo 2 (G2)",
   "Grupo 3 (G3)",
-  "Grupo 4 (G4 - Luca & Vitor)"
+  "Grupo 4 (G4)"
 )
 
 forest(
