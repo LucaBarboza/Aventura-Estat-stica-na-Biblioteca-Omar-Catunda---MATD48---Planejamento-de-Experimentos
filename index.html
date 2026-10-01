@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Experimento & Meta-análise - Biblioteca Omar Catunda</title>
+  <title>Relatório do Experimento - Biblioteca Omar Catunda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1e40af;
-      --primary-dark: #1e3a8a;
       --primary-soft: #eff6ff;
       --secondary: #0d9488;
       --bg: #f1f5f9;
@@ -18,10 +17,8 @@
       --text: #0f172a;
       --text-muted: #64748b;
       --border: #e2e8f0;
-      --border-accent: #93c5fd;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
       --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.04);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
     }
 
     * {
@@ -35,38 +32,35 @@
       line-height: 1.65;
       color: var(--text);
       background-color: var(--bg);
-      padding: 2.5rem 1.2rem;
+      padding: 3rem 1.2rem;
     }
 
     .container {
-      max-width: 980px;
+      max-width: 960px;
       margin: 0 auto;
       background: var(--card-bg);
-      padding: 3rem 3.5rem;
+      padding: 3.5rem;
       border-radius: 20px;
       box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
     }
 
-    /* Navegação por Abas (Tabs) */
+    /* Abas de Navegação */
     .tab-navigation {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.8rem;
       margin-bottom: 2rem;
-      padding-bottom: 0.5rem;
       border-bottom: 2px solid var(--border);
+      padding-bottom: 0.8rem;
     }
 
     .tab-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.85rem 1.6rem;
+      padding: 0.75rem 1.5rem;
       font-family: inherit;
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--text-muted);
-      background-color: transparent;
+      background: transparent;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -74,22 +68,14 @@
     }
 
     .tab-btn:hover {
-      color: var(--primary-dark);
       background-color: #e2e8f0;
+      color: var(--text);
     }
 
     .tab-btn.active {
       background-color: var(--primary);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
-    }
-
-    .tab-btn .badge-pill {
-      font-size: 0.75rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.25);
-      color: inherit;
+      box-shadow: 0 4px 10px rgba(30, 64, 175, 0.2);
     }
 
     .tab-pane {
@@ -106,7 +92,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Cabeçalhos */
     header {
       background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
       color: white;
@@ -114,10 +99,6 @@
       border-radius: 16px;
       margin-bottom: 2.5rem;
       box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
-    }
-
-    header.meta-header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
     }
 
     header h1 {
@@ -173,7 +154,6 @@
       border-radius: 4px;
     }
 
-    /* Caixas de Resposta e Cards */
     .caixa-resposta {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
@@ -203,69 +183,6 @@
       font-size: 0.98rem;
     }
 
-    /* Caixas Reservadas em Branco para a Atividade 2 */
-    .caixa-pergunta {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.6rem;
-      margin-bottom: 1.8rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .pergunta-titulo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 1.08rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .pergunta-sub {
-      font-size: 0.93rem;
-      color: var(--text-muted);
-      margin-bottom: 1.1rem;
-      line-height: 1.5;
-    }
-
-    .campo-em-branco {
-      background: #f8fafc;
-      border: 2px dashed #93c5fd;
-      border-radius: 10px;
-      padding: 1.8rem 1.4rem;
-      color: #64748b;
-      font-style: italic;
-      font-size: 0.95rem;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-
-    .campo-em-branco:hover {
-      background: #eff6ff;
-      border-color: #60a5fa;
-    }
-
-    .conclusao-box {
-      background: #f8fafc;
-      border: 2px dashed #3b82f6;
-      border-left: 6px solid var(--primary);
-      border-radius: 12px;
-      padding: 1.8rem;
-      margin-top: 1rem;
-      margin-bottom: 1.8rem;
-    }
-
-    .frase-obrigatoria {
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--primary-dark);
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-
-    /* Tabelas */
     .table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -314,17 +231,11 @@
       color: #0f172a;
     }
 
-    .destaque-linha {
-      background-color: #eff6ff !important;
-      font-weight: 600;
-    }
-
-    /* Imagens e Gráficos */
     .chart-box {
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 16px;
-      padding: 1.5rem;
+      padding: 1.2rem;
       margin: 1.8rem 0;
       text-align: center;
       box-shadow: var(--shadow-sm);
@@ -337,75 +248,6 @@
       margin: 0 auto;
       border-radius: 8px;
     }
-
-    .chart-legend {
-      margin-top: 1rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Grid de Métricas */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1.2rem;
-      margin: 1.4rem 0 2rem 0;
-    }
-
-    .metric-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 1.3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .metric-label {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #64748b;
-      font-weight: 600;
-    }
-
-    .metric-value {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: var(--primary);
-    }
-
-    .metric-sub {
-      font-size: 0.85rem;
-      color: #475569;
-    }
-
-    /* Badges */
-    .badge {
-      display: inline-block;
-      padding: 0.25rem 0.65rem;
-      border-radius: 6px;
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .badge-primary { background: #dbeafe; color: #1e40af; }
-    .badge-danger { background: #fee2e2; color: #991b1b; }
-    .badge-success { background: #dcfce7; color: #166534; }
-    .badge-warning { background: #fef3c7; color: #92400e; }
-
-    @media (max-width: 768px) {
-      body { padding: 1.2rem 0.6rem; }
-      .container { padding: 1.8rem 1.4rem; }
-      header { padding: 1.5rem 1.4rem; }
-      header h1 { font-size: 1.5rem; }
-      .tab-navigation { flex-direction: column; }
-    }
   </style>
 </head>
 <body>
@@ -414,21 +256,15 @@
 
   <!-- Navegação por Abas -->
   <nav class="tab-navigation">
-    <button class="tab-btn active" onclick="trocarAba('atv1')">
-      <span>📘 Atividade 1: Experimento DIC</span>
-      <span class="badge-pill">Concluído</span>
-    </button>
-    <button class="tab-btn" onclick="trocarAba('atv2')">
-      <span>📚 Atividade 2: Meta-análise</span>
-      <span class="badge-pill">Consolidação</span>
-    </button>
+    <button class="tab-btn active" onclick="trocarAba('atv1')">📘 Atividade 1 (DIC)</button>
+    <button class="tab-btn" onclick="trocarAba('atv2')">📚 Atividade 2 (Meta-análise)</button>
   </nav>
 
   <!-- ========================================================================= -->
-  <!-- ABA 1: ATIVIDADE 1 (DELINEAMENTO INTEIRAMENTE CASUALIZADO)                -->
+  <!-- ABA 1: ATIVIDADE 1 (DIC)                                                  -->
   <!-- ========================================================================= -->
   <div id="tab-atv1" class="tab-pane active">
-    
+
     <header>
       <h1>Relatório Final do Experimento (DIC)</h1>
       <p style="opacity: 0.9; font-size: 1.05rem;">Aventura Estatística no Acervo da Biblioteca Omar Catunda</p>
@@ -773,324 +609,144 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- ABA 2: ATIVIDADE 2 (META-ANÁLISE DO EXPERIMENTO DA BIBLIOTECA)             -->
+  <!-- ABA 2: ATIVIDADE 2 (META-ANÁLISE)                                         -->
   <!-- ========================================================================= -->
   <div id="tab-atv2" class="tab-pane">
 
-    <header class="meta-header">
-      <h1>Relatório de Meta-análise</h1>
-      <p style="opacity: 0.9; font-size: 1.05rem;">Síntese e Combinação dos Efeitos Amostrais dos Grupos (Biblioteca Omar Catunda)</p>
+    <header>
+      <h1>Relatório Final da Meta-análise</h1>
+      <p style="opacity: 0.9; font-size: 1.05rem;">Meta-análise do Experimento da Biblioteca Omar Catunda</p>
       <div class="meta-grid">
         <div class="meta-item">
           <span>Disciplina</span>
           <span>MATD28 – Planej. de Experimentos</span>
         </div>
         <div class="meta-item">
-          <span>Grupo de Origem</span>
-          <span>Grupo 4 (Luca Barboza e Vitor Freitas)</span>
-        </div>
-        <div class="meta-item">
-          <span>Método do Modelo</span>
-          <span>Efeitos Aleatórios (REML)</span>
-        </div>
-        <div class="meta-item">
-          <span>Escopo Amostral</span>
-          <span>4 Grupos (96 livros no total)</span>
+          <span>Alunos</span>
+          <span>Luca Barboza e Vitor Freitas</span>
         </div>
       </div>
     </header>
 
-    <!-- 1. Contextualização e Estrutura dos Dados Amostrais -->
+    <!-- 1. Tabela de Tamanhos de Efeito por Grupo -->
     <section>
-      <h2>1. Contextualização e Amostragem dos Grupos</h2>
-      <div class="caixa-resposta">
-        <p>
-          O objetivo desta etapa é combinar as evidências empíricas obtidas pelos diferentes grupos de alunos (G1, G2, G3 e G4) na Biblioteca Central Omar Catunda. Como cada grupo isolado amostrou apenas $n = 8$ livros por prateleira ($n_{\text{total}} = 24$), os testes individuais possuem poder estatístico limitado. A meta-análise consolida o conjunto de <strong>96 livros avaliados</strong> para estimar com precisão o tamanho de efeito global da prateleira sobre o número de páginas e quantificar o nível de concordância (heterogeneidade) entre os grupos.
-        </p>
-        <p style="margin-top: 0.6rem; font-size: 0.92rem; color: #475569;">
-          📁 <em>Estrutura de arquivos:</em> Os conjuntos de dados padronizados estão organizados na pasta local <code>dados/</code> contendo os arquivos individuais <code>G1.csv</code>, <code>G2.csv</code>, <code>G3.csv</code>, <code>G4.csv</code> e a base consolidada <code>dados_consolidados.csv</code>.
-        </p>
-      </div>
-
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Grupo Amostral</th>
-              <th>Identificação</th>
-              <th>Livros por Prateleira</th>
-              <th>Total de Livros (n)</th>
-              <th>Horário da Coleta</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="destaque-col">Grupo 1 (G1)</td>
-              <td>Equipe G1</td>
-              <td>8 em P1, 8 em P2, 8 em P3</td>
-              <td>24</td>
-              <td>10:40 – 12:30</td>
-            </tr>
-            <tr>
-              <td class="destaque-col">Grupo 2 (G2)</td>
-              <td>Equipe G2</td>
-              <td>8 em P1, 8 em P2, 8 em P3</td>
-              <td>24</td>
-              <td>10:40 – 12:30</td>
-            </tr>
-            <tr>
-              <td class="destaque-col">Grupo 3 (G3)</td>
-              <td>Equipe G3</td>
-              <td>8 em P1, 8 em P2, 8 em P3</td>
-              <td>24</td>
-              <td>10:40 – 12:30</td>
-            </tr>
-            <tr class="destaque-linha">
-              <td class="destaque-col">Grupo 4 (G4) ⭐</td>
-              <td>Luca Barboza e Vitor Freitas</td>
-              <td>8 em P1, 8 em P2, 8 em P3</td>
-              <td>24</td>
-              <td>10:40 – 12:30</td>
-            </tr>
-            <tr style="background: #fafafa; font-weight: 700;">
-              <td>Total Consolidado</td>
-              <td>4 Grupos Independentes</td>
-              <td>32 por prateleira (P1, P2, P3)</td>
-              <td>96 livros</td>
-              <td>Mesmo intervalo de aula</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 2. Tabela de Métricas Individuais (Passos 2 e 3) -->
-    <section>
-      <h2>2. Tabela Consolidada de Tamanhos de Efeito por Grupo</h2>
-      <p style="font-size: 0.95rem; color: #475569; margin-bottom: 1rem;">
-        Para cada grupo, ajustou-se a Análise de Variância (ANOVA) unifatorial, extraindo a proporção de variância explicada ($\eta^2$), convertida para o tamanho de efeito padronizado ($d$ de Cohen) e sua variância amostral assintótica ($\text{Var}(d)$):
-      </p>
-
+      <h2>1. Tamanhos de Efeito por Grupo</h2>
       <div class="table-wrapper">
         <table>
           <thead>
             <tr>
               <th>Grupo</th>
               <th>n</th>
-              <th>SS Entre</th>
-              <th>SS Total</th>
-              <th>Estatística F</th>
-              <th>p-valor (ANOVA)</th>
               <th>η² (Eta²)</th>
+              <th>p-valor</th>
               <th>d de Cohen</th>
               <th>Var(d)</th>
-              <th>IC 95% Individual</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="destaque-col">G1</td>
               <td>24</td>
-              <td>42.656,33</td>
-              <td>353.179,83</td>
-              <td>1,442</td>
-              <td>0,2588</td>
               <td>0,1208</td>
+              <td>0,2588</td>
               <td>0,7413</td>
               <td>0,1781</td>
-              <td>[−0,086 ; 1,568]</td>
             </tr>
             <tr>
               <td class="destaque-col">G2</td>
               <td>24</td>
-              <td>12.309,08</td>
-              <td>320.530,96</td>
-              <td>0,419</td>
-              <td>0,6629</td>
               <td>0,0384</td>
+              <td>0,6629</td>
               <td>0,3997</td>
               <td>0,1700</td>
-              <td>[−0,408 ; 1,208]</td>
             </tr>
             <tr>
               <td class="destaque-col">G3</td>
               <td>24</td>
-              <td>230.227,75</td>
-              <td>1.098.044,62</td>
-              <td>2,786</td>
-              <td>0,0845</td>
               <td>0,2097</td>
+              <td>0,0845</td>
               <td>1,0301</td>
               <td>0,1888</td>
-              <td>[0,179 ; 1,882]</td>
             </tr>
-            <tr class="destaque-linha">
-              <td class="destaque-col">G4 (Luca &amp; Vitor)</td>
+            <tr>
+              <td class="destaque-col">G4</td>
               <td>24</td>
-              <td>529.992,33</td>
-              <td>779.959,33</td>
-              <td>22,263</td>
-              <td><strong>6,47 × 10⁻⁶</strong></td>
-              <td><strong>0,6795</strong></td>
-              <td><strong>2,9122</strong></td>
+              <td>0,6795</td>
+              <td>0,0000065</td>
+              <td>2,9122</td>
               <td>0,3434</td>
-              <td>[1,764 ; 4,061]</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- 3. Modelo de Efeitos Aleatórios (REML) -->
+    <!-- 2. Forest Plot -->
     <section>
-      <h2>3. Modelo de Efeitos Aleatórios (REML via <code>metafor</code>)</h2>
-      
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <span class="metric-label">Efeito Combinado (d)</span>
-          <span class="metric-value">1,2128</span>
-          <span class="metric-sub">Erro Padrão (SE) = 0,5259</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-label">Significância Global</span>
-          <span class="metric-value" style="color: #166534;">p = 0,0211</span>
-          <span class="metric-sub">Estatística z = 2,3063 (p &lt; 0,05)</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-label">Intervalo de Confiança 95%</span>
-          <span class="metric-value" style="font-size: 1.35rem; color: #1e3a8a;">[0,1821 ; 2,2435]</span>
-          <span class="metric-sub">Não cruza o zero (efeito real &gt; 0)</span>
-        </div>
-      </div>
-
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Parâmetro do Modelo</th>
-              <th>Estimativa (d)</th>
-              <th>Erro Padrão (SE)</th>
-              <th>Estatística z</th>
-              <th>p-valor</th>
-              <th>Limite Inferior (95%)</th>
-              <th>Limite Superior (95%)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="destaque-linha">
-              <td class="destaque-col">Efeito Global (REML)</td>
-              <td><strong>1,2128</strong></td>
-              <td>0,5259</td>
-              <td>2,3063</td>
-              <td><strong>0,0211</strong></td>
-              <td>0,1821</td>
-              <td>2,2435</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 4. Avaliação de Heterogeneidade -->
-    <section>
-      <h2>4. Avaliação e Métricas de Heterogeneidade</h2>
-
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <span class="metric-label">Inconsistência (I²)</span>
-          <span class="metric-value" style="color: #b91c1c;">81,14%</span>
-          <span class="metric-sub"><span class="badge badge-danger">Muito Alta (&gt; 75%)</span></span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-label">Teste Q de Cochran</span>
-          <span class="metric-value">13,1220</span>
-          <span class="metric-sub">GL = 3 | p-valor = <strong>0,0044</strong></span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-label">Variância Entre Grupos (τ²)</span>
-          <span class="metric-value">0,8904</span>
-          <span class="metric-sub">Desvio τ = 0,9436</span>
-        </div>
-      </div>
-
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Faixa de I²</th>
-              <th>Classificação</th>
-              <th>Interpretação no Contexto Experimental</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="destaque-col">0% – 25%</td>
-              <td><span class="badge badge-success">Baixa</span></td>
-              <td>Os grupos concordam fortemente entre si; a variação reflete erro puramente amostral.</td>
-            </tr>
-            <tr>
-              <td class="destaque-col">25% – 50%</td>
-              <td><span class="badge badge-warning">Moderada</span></td>
-              <td>Há certa variação entre os experimentos, mas o efeito médio preserva bom sentido prático.</td>
-            </tr>
-            <tr>
-              <td class="destaque-col">50% – 75%</td>
-              <td><span class="badge badge-warning">Alta</span></td>
-              <td>Grupos apresentam divergências notáveis; recomenda-se investigar fatores moderadores.</td>
-            </tr>
-            <tr class="destaque-linha">
-              <td class="destaque-col">&gt; 75% (81,14%)</td>
-              <td><span class="badge badge-danger">Muito Alta</span></td>
-              <td><strong>Encontrada no experimento:</strong> Forte divergência nas estimativas, puxada pelo efeito atípico e acentuado do Grupo 4.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 5. Forest Plot Oficial -->
-    <section>
-      <h2>5. Forest Plot do Experimento</h2>
+      <h2>2. Forest Plot</h2>
       <div class="chart-box">
         <img src="forest_plot.png" alt="Forest Plot do Efeito da Prateleira no Número de Páginas" class="chart-img">
-        <p class="chart-legend">
-          <strong>Figura:</strong> Forest Plot gerado via pacote <code>metafor</code> (R 4.5.3). Os quadrados pretos indicam a estimativa pontual de $d$ de cada grupo (com áreas proporcionais aos pesos atribuídos no modelo REML), as barras horizontais representam os intervalos de confiança de 95%, e o polígono azul inferior (losango) ilustra a estimativa do efeito global combinado ($d = 1{,}21$).
+      </div>
+    </section>
+
+    <!-- 3. Heterogeneidade e Modelo Global (REML) -->
+    <section>
+      <h2>3. Heterogeneidade e Modelo Global (REML)</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Parâmetro</th>
+              <th>Valor Estimado</th>
+              <th>Interpretação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="destaque-col">Teste Q de Cochran</td>
+              <td>QE (GL = 3)</td>
+              <td>13,1220</td>
+              <td>p = 0,0044 (Heterogeneidade significativa)</td>
+            </tr>
+            <tr>
+              <td class="destaque-col">Índice I²</td>
+              <td>I²</td>
+              <td>81,14%</td>
+              <td>Muito Alta (&gt; 75%)</td>
+            </tr>
+            <tr>
+              <td class="destaque-col">Variância Entre Grupos</td>
+              <td>τ² (tau²)</td>
+              <td>0,8904</td>
+              <td>τ = 0,9436</td>
+            </tr>
+            <tr>
+              <td class="destaque-col">Efeito Global (REML)</td>
+              <td>d</td>
+              <td>1,2128</td>
+              <td>IC 95%: [0,1821 ; 2,2435] (p = 0,0211)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Discussão -->
+    <section>
+      <h2>4. Discussão (Mínimo 3 Parágrafos)</h2>
+      <div class="caixa-resposta">
+        <p style="color: #94a3b8; font-style: italic;">
+          [Espaço reservado para a discussão respondendo às perguntas: 1. Resultado Global, 2. Consistência, 3. Conexão com o Delineamento, 4. Limitações]
         </p>
       </div>
     </section>
 
-    <!-- 6. Discussão Integrada -->
+    <!-- 5. Conclusão -->
     <section>
-      <h2>6. Discussão (Mínimo 3 Parágrafos)</h2>
-
-      <div class="caixa-resposta" style="border-left-color: #2563eb; background: #ffffff;">
-        <p style="font-weight: 700; color: #1e3a8a; margin-bottom: 0.6rem;">
-          📋 Roteiro de Questões para a Discussão Integrada:
-        </p>
-        <p style="font-size: 0.92rem; color: #475569; margin-bottom: 0.8rem;">
-          O texto a ser inserido abaixo deve conter no mínimo 3 parágrafos articulando os 4 eixos norteadores exigidos pelo experimento:
-        </p>
-        <ul style="font-size: 0.92rem; color: #334155; line-height: 1.6;">
-          <li><strong>1. Resultado Global:</strong> O efeito combinado foi estatisticamente significativo ($p < 0{,}05$)? Qual a magnitude do $d$ de Cohen (pequeno, médio ou grande)? O intervalo de confiança de 95% cruza o zero?</li>
-          <li><strong>2. Consistência e Heterogeneidade:</strong> Qual o valor de $I^2$ (baixa, moderada ou alta heterogeneidade)? Os grupos concordam entre si ou algum ficou "fora da linha" no <em>forest plot</em>?</li>
-          <li><strong>3. Conexão com o Delineamento Experimental:</strong> Como todos os grupos coletaram no mesmo horário, a variação reflete livros sorteados ou erros de medição? O tamanho de amostra por grupo ($n=8$) foi suficiente? Os valores de $\eta^2$ individuais foram parecidos?</li>
-          <li><strong>4. Limitações:</strong> Analisar o impacto do número pequeno de grupos (instabilidade na estimativa de $\tau^2$), o uso de aproximações na conversão $\eta^2 \rightarrow d$ e o fato de o número de páginas ser apenas uma <em>proxy</em> para "tipo de livro".</li>
-        </ul>
-      </div>
-
-      <div class="campo-em-branco" style="padding: 3rem 2rem; min-height: 180px; display: flex; align-items: center; justify-content: center; font-size: 1rem; line-height: 1.7;">
-        [ Espaço reservado para a discussão integrada do grupo — no mínimo 3 parágrafos articulando os 4 eixos acima ]
-      </div>
-    </section>
-
-    <!-- 7. Conclusão Final -->
-    <section>
-      <h2>7. Conclusão da Meta-análise</h2>
-      <div class="conclusao-box">
-        <span class="frase-obrigatoria">A evidência combinada sugere que...</span>
-        <div class="campo-em-branco" style="background: #ffffff; margin-top: 0.5rem;">
-          [ Espaço reservado para a conclusão final do grupo ]
-        </div>
+      <h2>5. Conclusão</h2>
+      <div class="caixa-resposta">
+        <p>A evidência combinada sugere que...</p>
       </div>
     </section>
 
@@ -1101,31 +757,25 @@
 <!-- Script de Controle das Abas -->
 <script>
   function trocarAba(abaId) {
-    // Esconde todos os painéis
     const paineis = document.querySelectorAll('.tab-pane');
     paineis.forEach(pane => pane.classList.remove('active'));
 
-    // Desativa todos os botões
     const botoes = document.querySelectorAll('.tab-btn');
     botoes.forEach(btn => btn.classList.remove('active'));
 
-    // Ativa o painel selecionado
     const painelAlvo = document.getElementById('tab-' + abaId);
     if (painelAlvo) {
       painelAlvo.classList.add('active');
     }
 
-    // Ativa o botão selecionado
     const botaoAlvo = Array.from(botoes).find(btn => btn.getAttribute('onclick').includes(abaId));
     if (botaoAlvo) {
       botaoAlvo.classList.add('active');
     }
 
-    // Salva preferência no hash da URL
     window.location.hash = abaId;
   }
 
-  // Verifica se há uma aba na URL ao carregar
   document.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash.replace('#', '');
     if (hash === 'atv1' || hash === 'atv2') {
