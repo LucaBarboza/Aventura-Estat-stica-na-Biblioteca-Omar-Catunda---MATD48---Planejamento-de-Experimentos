@@ -7,6 +7,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <style>
     :root {
       --primary: #1e40af;
@@ -205,9 +213,8 @@
       background-color: #f8fafc;
       color: #475569;
       font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
       padding: 14px 18px;
       border-bottom: 2px solid #e2e8f0;
     }
@@ -636,11 +643,11 @@
           <thead>
             <tr>
               <th>Grupo</th>
-              <th>n</th>
-              <th>η² (Eta²)</th>
+              <th>\(n\)</th>
+              <th>\(\eta^2\)</th>
               <th>p-valor</th>
-              <th>d de Cohen</th>
-              <th>Var(d)</th>
+              <th>\(d\) de Cohen</th>
+              <th>\(\text{Var}(d)\)</th>
             </tr>
           </thead>
           <tbody>
@@ -699,33 +706,33 @@
               <th>Métrica</th>
               <th>Parâmetro</th>
               <th>Valor Estimado</th>
-              <th>Interpretação</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="destaque-col">Teste Q de Cochran</td>
-              <td>QE (GL = 3)</td>
+              <td>\(Q\)</td>
               <td>13,1220</td>
-              <td>p = 0,0044 (Heterogeneidade significativa)</td>
             </tr>
             <tr>
-              <td class="destaque-col">Índice I²</td>
-              <td>I²</td>
+              <td class="destaque-col">p-valor de Q</td>
+              <td>\(p\)</td>
+              <td>0,0044</td>
+            </tr>
+            <tr>
+              <td class="destaque-col">Índice de Heterogeneidade</td>
+              <td>\(I^2\)</td>
               <td>81,14%</td>
-              <td>Muito Alta (&gt; 75%)</td>
             </tr>
             <tr>
               <td class="destaque-col">Variância Entre Grupos</td>
-              <td>τ² (tau²)</td>
+              <td>\(\tau^2\)</td>
               <td>0,8904</td>
-              <td>τ = 0,9436</td>
             </tr>
             <tr>
               <td class="destaque-col">Efeito Global (REML)</td>
-              <td>d</td>
+              <td>\(d\)</td>
               <td>1,2128</td>
-              <td>IC 95%: [0,1821 ; 2,2435] (p = 0,0211)</td>
             </tr>
           </tbody>
         </table>
